@@ -69,7 +69,7 @@ class Print(object):
 
         _stdOutHandle = None
         def __init__(self):
-            self._stdOutHandle = ctypes.windll.kernel32.GetStdHandle(_STD_OUTPUT_HANDLE)
+            self._stdOutHandle = self.ctypes.windll.kernel32.GetStdHandle(self._STD_OUTPUT_HANDLE)
 
         def _setCmdColor(self, color, handle):
             return Print._PrintWindows.ctypes.windll.kernel32.SetConsoleTextAttribute(handle, color)
