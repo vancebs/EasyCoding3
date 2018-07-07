@@ -48,7 +48,7 @@ class Print(object):
 
     class _PrintWindows(object):
         import sys
-        from ctypes import windll
+        import ctypes
 
         _STD_INPUT_HANDLE = -10
         _STD_OUTPUT_HANDLE = -11
@@ -67,16 +67,18 @@ class Print(object):
         _BACKGROUND_WHITE = _BACKGROUND_GREEN | _BACKGROUND_RED | _BACKGROUND_BLUE
         _BACKGROUND_INTENSITY = 0x80
 
-        _stdOutHandle = windll.kernel32.GetStdHandle(_STD_OUTPUT_HANDLE)
+        _stdOutHandle = None
+        def __init__(self):
+            self._stdOutHandle = ctypes.windll.kernel32.GetStdHandle(_STD_OUTPUT_HANDLE)
 
-        def _setCmdColor(self, color, handle = _stdOutHandle):
-            return Print._PrintWindows.windll.kernel32.SetConsoleTextAttribute(handle, color)
+        def _setCmdColor(self, color, handle):
+            return Print._PrintWindows.ctypes.windll.kernel32.SetConsoleTextAttribute(handle, color)
 
         def _resetCmdColor(self):
-            self._setCmdColor(Print._PrintWindows._FOREGROUND_WHITE)
+            self._setCmdColor(Print._PrintWindows._FOREGROUND_WHITE, self._stdOutHandle)
 
         def print(self, msg, color = _FOREGROUND_WHITE):
-            self._setCmdColor(color)
+            self._setCmdColor(color, self._stdOutHandle)
             Print._PrintWindows.sys.stdout.write(msg + '\n')
             self._resetCmdColor()
         
