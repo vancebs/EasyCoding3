@@ -10,7 +10,8 @@
             "request": "launch",
             "program": "${workspaceFolder}/ec3.py",
             "console": "integratedTerminal",
-            "args": ["c2", "clone,  make -f -j4, shutdown "]
+            //"args": ["c2", "clone,  make -f -j4, shutdown "]
+            "args": ["-p", "c2", "flash"]
         },
         {
             "name": "Python: Current File",

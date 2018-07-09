@@ -79,7 +79,7 @@ class Print(object):
 
         def print(self, msg, color = _FOREGROUND_WHITE):
             self._setCmdColor(color, self._stdOutHandle)
-            Print._PrintWindows.sys.stdout.write(msg + '\n')
+            Print._PrintWindows.sys.stdout.write('%s\n' % msg)
             self._resetCmdColor()
         
         def red(self, msg):
