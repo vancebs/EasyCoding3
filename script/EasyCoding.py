@@ -1,66 +1,73 @@
 #!/usr/bin/python
 # coding=utf-8
 
-import re
-from script.util.Log import Log
 from script.util.Print import Print
 from script.Env import Env
 
+
 class EasyCoding(object):
     def shell(self, argv):
-        # get program path
-        program = argv[0].strip()
-        argv = argv[1:] # update argv
+        # ignore program path
+        argv = argv[1:]
 
         # check argv
-        if (len(argv) <= 0):
+        if len(argv) <= 0:
             Print.red('No project input!!!')
             self.help()
             return
 
         # get print flag
-        doPrint = False
-        printFlag = argv[0].strip()
-        if (printFlag == '--print' or printFlag == '-p' or printFlag == '-P'):
-            doPrint = True
+        do_print = False
+        print_flag = argv[0].strip()
+        if print_flag == '--print' or print_flag == '-p':
+            do_print = True
             argv = argv[1:]
-        
+
         # check argv
-        if (len(argv) <= 0):
+        if len(argv) <= 0:
             Print.red('No project input!!!')
             self.help()
             return
-        
+
         # get project
-        project = argv[0].strip() if doPrint else printFlag
+        project = argv[0].strip() if do_print else print_flag
 
         # get command
         command = ' '.join(argv[1:]).strip()
 
         # parser argv
-        cmds = list(map(str.strip, command.split(',')))
+        cmd_list = list(map(str.strip, command.split(',')))
 
         # env
-        env = Env(printFlag)
+        env = Env(print_flag)
 
         # load cfg
-        cfg = env.loadCfg(project)
-        if (cfg == None):
-            Print.red('load config failed!!')
+        cfg = env.load_cfg(project)
+        if cfg is None:
+            Print.red('invalid project: %s' % project)
+            Print.yellow('available project: %s' % env.cfgProgramCfgList)
             return
-        
-        # load cmd & run
-        for c in cmds:
-            cmdParts = list(map(str.strip, c.split(' ')))
-            cmdName = cmdParts[0]
-            cmdParams = cmdParts[1:]
 
-            cmd = env.loadCmd(cmdName)
-            if (cmd is None):
-                Print.yellow('invalid command %s. drop it.' % cmdName)
+        # check cmd
+        cmd_checked = []
+        for c in cmd_list:
+            cmd_parts = list(map(str.strip, c.split(' ')))
+            cmd_name = cmd_parts[0]
+            cmd_params = cmd_parts[1:]
+
+            cmd = env.load_cmd(cmd_name)
+            if cmd is None:
+                Print.red('invalid command: %s.' % cmd_name)
+                Print.yellow('available cmd: %s' % env.cfgProgramCmdList)
+                return
             else:
-                cmd.run(cfg, *tuple(cmdParams))
+                cmd_checked.append({'cmd': cmd, 'params': cmd_params})
 
-    def help(self):
+        # run cmd
+        for c in cmd_checked:
+            c['cmd'].run(cfg, *tuple(c['params']))
+
+    @staticmethod
+    def help():
         Print.yellow('ec [--print|-p|-P] <project> CMD1 [PARAM1], [CMD2] [PARAM2]')
         Print.yellow('\t [--print|-p|-P]: print the command instead of execute on shell')

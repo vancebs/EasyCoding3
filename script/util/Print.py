@@ -3,6 +3,7 @@
 
 import platform
 
+
 class Print(object):
     _sImpl = None
 
@@ -12,41 +13,48 @@ class Print(object):
     YELLOW = None
     WHITE = None
 
-    def _getImpl():
-        if (Print._sImpl == None):
-            if ('Windows' in platform.system()):
-                Print._sImpl =  Print._PrintWindows()
+    @staticmethod
+    def _get_impl():
+        if Print._sImpl is None:
+            if 'Windows' in platform.system():
+                Print._sImpl = Print.PrintWindows()
             else:
-                Print._sImpl =  Print._PrintLinux()
+                Print._sImpl = Print.PrintLinux()
             
             # init color
-            Print.BLUE = Print._sImpl._FOREGROUND_BLUE
-            Print.GREEN = Print._sImpl._FOREGROUND_GREEN
-            Print.RED = Print._sImpl._FOREGROUND_RED
-            Print.YELLOW = Print._sImpl._FOREGROUND_YELLOW
-            Print.WHITE = Print._sImpl._FOREGROUND_WHITE
+            Print.BLUE = Print._sImpl.FOREGROUND_BLUE
+            Print.GREEN = Print._sImpl.FOREGROUND_GREEN
+            Print.RED = Print._sImpl.FOREGROUND_RED
+            Print.YELLOW = Print._sImpl.FOREGROUND_YELLOW
+            Print.WHITE = Print._sImpl.FOREGROUND_WHITE
 
         return Print._sImpl
-    
-    def print(msg, color = WHITE):
-        Print._getImpl().print(msg, color)
-    
-    def red(msg):
-        Print._getImpl().red(msg)
-    
-    def green(msg):
-        Print._getImpl().green(msg)
-    
-    def blue(msg):
-        Print._getImpl().blue(msg)
-    
-    def yellow(msg):
-        Print._getImpl().yellow(msg)
-    
-    def white(msg):
-        Print._getImpl().white(msg)
 
-    class _PrintWindows(object):
+    @staticmethod
+    def print(msg: str, color: int=WHITE):
+        Print._get_impl().print(msg, color)
+
+    @staticmethod
+    def red(msg: str):
+        Print._get_impl().red(msg)
+
+    @staticmethod
+    def green(msg: str):
+        Print._get_impl().green(msg)
+
+    @staticmethod
+    def blue(msg: str):
+        Print._get_impl().blue(msg)
+
+    @staticmethod
+    def yellow(msg: str):
+        Print._get_impl().yellow(msg)
+
+    @staticmethod
+    def white(msg: str):
+        Print._get_impl().white(msg)
+
+    class PrintWindows(object):
         import sys
         import ctypes
 
@@ -54,70 +62,72 @@ class Print(object):
         _STD_OUTPUT_HANDLE = -11
         _STD_ERROR_HANDLE = -12
 
-        _FOREGROUND_BLUE = 0x01
-        _FOREGROUND_GREEN = 0x02
-        _FOREGROUND_RED = 0x04
-        _FOREGROUND_YELLOW = _FOREGROUND_GREEN | _FOREGROUND_RED
-        _FOREGROUND_WHITE = _FOREGROUND_GREEN | _FOREGROUND_RED | _FOREGROUND_BLUE
-        _FOREGROUND_INTENSITY = 0x08
-        _BACKGROUND_BLUE = 0x10
-        _BACKGROUND_GREEN = 0x20
-        _BACKGROUND_RED = 0x40
-        _BACKGROUND_YELLOW = _BACKGROUND_GREEN | _BACKGROUND_RED
-        _BACKGROUND_WHITE = _BACKGROUND_GREEN | _BACKGROUND_RED | _BACKGROUND_BLUE
-        _BACKGROUND_INTENSITY = 0x80
+        FOREGROUND_BLUE = 0x01
+        FOREGROUND_GREEN = 0x02
+        FOREGROUND_RED = 0x04
+        FOREGROUND_YELLOW = FOREGROUND_GREEN | FOREGROUND_RED
+        FOREGROUND_WHITE = FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_BLUE
+        FOREGROUND_INTENSITY = 0x08
+        BACKGROUND_BLUE = 0x10
+        BACKGROUND_GREEN = 0x20
+        BACKGROUND_RED = 0x40
+        BACKGROUND_YELLOW = BACKGROUND_GREEN | BACKGROUND_RED
+        BACKGROUND_WHITE = BACKGROUND_GREEN | BACKGROUND_RED | BACKGROUND_BLUE
+        BACKGROUND_INTENSITY = 0x80
 
         _stdOutHandle = None
+
         def __init__(self):
             self._stdOutHandle = self.ctypes.windll.kernel32.GetStdHandle(self._STD_OUTPUT_HANDLE)
 
-        def _setCmdColor(self, color, handle):
-            return Print._PrintWindows.ctypes.windll.kernel32.SetConsoleTextAttribute(handle, color)
+        def _set_cmd_color(self, color: int):
+            return Print.PrintWindows.ctypes.windll.kernel32.SetConsoleTextAttribute(self._stdOutHandle, color)
 
-        def _resetCmdColor(self):
-            self._setCmdColor(Print._PrintWindows._FOREGROUND_WHITE, self._stdOutHandle)
+        def _reset_cmd_color(self):
+            self._set_cmd_color(Print.PrintWindows.FOREGROUND_WHITE)
 
-        def print(self, msg, color = _FOREGROUND_WHITE):
-            self._setCmdColor(color, self._stdOutHandle)
-            Print._PrintWindows.sys.stdout.write('%s\n' % msg)
-            self._resetCmdColor()
+        def print(self, msg: str, color: int=FOREGROUND_WHITE):
+            self._set_cmd_color(color)
+            Print.PrintWindows.sys.stdout.write('%s\n' % msg)
+            self._reset_cmd_color()
         
-        def red(self, msg):
-            self.print(msg, self._FOREGROUND_RED)
+        def red(self, msg: str):
+            self.print(msg, self.FOREGROUND_RED)
         
-        def green(self, msg):
-            self.print(msg, self._FOREGROUND_GREEN)
+        def green(self, msg: str):
+            self.print(msg, self.FOREGROUND_GREEN)
         
-        def blue(self, msg):
-            self.print(msg, self._FOREGROUND_BLUE)
+        def blue(self, msg: str):
+            self.print(msg, self.FOREGROUND_BLUE)
         
-        def yellow(self, msg):
-            self.print(msg, self._FOREGROUND_YELLOW)
+        def yellow(self, msg: str):
+            self.print(msg, self.FOREGROUND_YELLOW)
         
-        def white(self, msg):
-            self.print(msg, self._FOREGROUND_WHITE)
-        
-    class _PrintLinux(object):
-        _FOREGROUND_BLUE = 34
-        _FOREGROUND_GREEN = 32
-        _FOREGROUND_RED = 31
-        _FOREGROUND_YELLOW = 33
-        _FOREGROUND_WHITE = 37
+        def white(self, msg: str):
+            self.print(msg, self.FOREGROUND_WHITE)
 
-        def print(self, msg, color = _FOREGROUND_WHITE):
-            print ('\033[%dm%s\033[0m' % (color, msg))
+    class PrintLinux(object):
+        FOREGROUND_BLUE = 34
+        FOREGROUND_GREEN = 32
+        FOREGROUND_RED = 31
+        FOREGROUND_YELLOW = 33
+        FOREGROUND_WHITE = 37
+
+        @staticmethod
+        def print(msg: str, color: int=FOREGROUND_WHITE):
+            print('\033[%dm%s\033[0m' % (color, msg))
         
-        def red(self, msg):
-            self.print(msg, self._FOREGROUND_RED)
+        def red(self, msg: str):
+            self.print(msg, self.FOREGROUND_RED)
         
-        def green(self, msg):
-            self.print(msg, self._FOREGROUND_GREEN)
+        def green(self, msg: str):
+            self.print(msg, self.FOREGROUND_GREEN)
         
-        def blue(self, msg):
-            self.print(msg, self._FOREGROUND_BLUE)
+        def blue(self, msg: str):
+            self.print(msg, self.FOREGROUND_BLUE)
         
-        def yellow(self, msg):
-            self.print(msg, self._FOREGROUND_YELLOW)
+        def yellow(self, msg: str):
+            self.print(msg, self.FOREGROUND_YELLOW)
         
-        def white(self, msg):
-            self.print(msg, self._FOREGROUND_WHITE)
+        def white(self, msg: str):
+            self.print(msg, self.FOREGROUND_WHITE)
