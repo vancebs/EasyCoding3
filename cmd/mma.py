@@ -3,6 +3,7 @@
 
 from cmd.base.Cmd import Cmd
 from cmd.env import env
+from script.util.Print import Print
 
 
 class mma(Cmd):
@@ -17,3 +18,7 @@ class mma(Cmd):
         self.shell('mma %s' % ' '.join(params))
 
         return True
+
+    @staticmethod
+    def help():
+        Print.yellow('AOSP mma')

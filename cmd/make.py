@@ -3,6 +3,7 @@
 
 from cmd.base.Cmd import Cmd
 from cmd.env import env
+from script.util.Print import Print
 
 import datetime
 
@@ -49,3 +50,7 @@ class make(Cmd):
         self.shell('echo "%s: result $?" >> %s' % (datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
                                                    self._MAKE_RESULT_FILE))
         return True
+
+    @staticmethod
+    def help():
+        Print.yellow('make AOSP project')

@@ -2,6 +2,7 @@
 # coding=utf-8
 
 from cmd.base.Cmd import Cmd
+from script.util.Print import Print
 
 
 class sys(Cmd):
@@ -12,3 +13,7 @@ class sys(Cmd):
         self.shell(' '.join(params))
 
         return True
+
+    @staticmethod
+    def help():
+        Print.yellow('execute bash command')

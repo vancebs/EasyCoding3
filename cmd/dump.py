@@ -38,3 +38,7 @@ class dump(Cmd):
         Print.yellow('<====== dump end')
 
         return True
+
+    @staticmethod
+    def help():
+        Print.yellow('dump configures')

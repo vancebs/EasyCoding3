@@ -34,3 +34,7 @@ class env(Cmd):
             Print.green('Done => Current Project: [%s]' % target_product)
 
             return True
+
+    @staticmethod
+    def help():
+        Print.yellow('env setup and choosecombo')

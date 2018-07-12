@@ -2,9 +2,11 @@
 # coding=utf-8
 
 from cmd.base.Cmd import Cmd
+from script.util.Print import Print
 
 import datetime
 import os
+import re
 
 
 class clone(Cmd):
@@ -16,6 +18,15 @@ class clone(Cmd):
         date_file = '.date'
         date = datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
         temp_dir = '%s/%s' % (self.cfg.cfgProjectBackupDir, date)
+
+        # check -j*
+        pattern = re.compile('-j[\d]+')
+        thread_param = None
+        for p in params:
+            if pattern.fullmatch(p):
+                thread_param = p
+                params = list(params)
+                params.remove(p)
 
         # prepare temp dir under backup dir
         os.makedirs(temp_dir)  # create dir
@@ -35,7 +46,7 @@ class clone(Cmd):
 
         # start clone
         self.shell('eval echo %s | %s' % (repo_input, repo_cmd))
-        self.shell('%s sync -j4' % self.cfg.cfgProjectRepoBin)
+        self.shell('%s sync %s' % (self.cfg.cfgProjectRepoBin, '-j4' if thread_param is None else thread_param))
         self.shell('%s start "%s" --all' % (self.cfg.cfgProjectRepoBin, self.cfg.cfgProjectBranch))
 
         # move project dir to backup
@@ -56,3 +67,7 @@ class clone(Cmd):
         self.shell('%s/prebuilts/misc/linux-x86/ccache/ccache -M 50G' % project_dir)
 
         return True
+
+    @staticmethod
+    def help():
+        Print.yellow('clone [-j4]')

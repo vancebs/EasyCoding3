@@ -2,6 +2,7 @@
 # coding=utf-8
 
 from cmd.base.Cmd import Cmd
+from script.util.Print import Print
 
 
 class croot(Cmd):
@@ -10,3 +11,7 @@ class croot(Cmd):
 
     def on_run(self, *params) -> bool:
         return self.cd(self.cfg.cfgProjectRootDir)
+
+    @staticmethod
+    def help():
+        Print.yellow('switch to project root dir')
