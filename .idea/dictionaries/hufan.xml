@@ -1,6 +1,7 @@
 <component name="ProjectDictionaryState">
   <dictionary name="hufan">
     <words>
+      <w>adbd</w>
       <w>aosp</w>
       <w>bootloader</w>
       <w>ccache</w>
@@ -15,8 +16,12 @@
       <w>prebuilts</w>
       <w>quic</w>
       <w>quicl</w>
+      <w>setenforce</w>
+      <w>setprop</w>
       <w>stdin</w>
       <w>sudo</w>
+      <w>unroot</w>
+      <w>unrooted</w>
       <w>userdata</w>
       <w>userdebug</w>
       <w>vscode</w>
