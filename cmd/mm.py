@@ -1,10 +1,19 @@
 #!/usr/bin/python
 # coding=utf-8
 
-from cfg.base.Config import Config
 from cmd.base.Cmd import Cmd
+from cmd.env import env
 
 
 class mm(Cmd):
-    def on_run(self, cfg: Config, *params):
-        self.shell(cfg, 'mm %s' % ' '.join(params))
+    _INIT_WORK_DIR: bool = False
+    _RESTORE_WORK_DIR: bool = False
+
+    def on_run(self, *params) -> bool:
+        # setup env
+        self.run_cmd(env())
+
+        # mm
+        self.shell('mm %s' % ' '.join(params))
+
+        return True

@@ -5,28 +5,25 @@ import os
 
 from cfg.base.Config import Config
 from cmd.base.Cmd import Cmd
-from script.util.Print import Print
 
 
 class Env(object):
     _PROGRAM_DIR = '%s/..'
 
-    cfgProgramDir = None
-    cfgProgramCmdDir = None
-    cfgProgramCfgDir = None
-    cfgProgramCmdList = None
-    cfgProgramCfgList = None
-    cfgProgramCfgFile = None
-    cfgGlobalFakeShell = None
+    cfgProgramDir: str = None
+    cfgProgramCmdDir: str = None
+    cfgProgramCfgDir: str = None
+    cfgProgramCmdList: list = None
+    cfgProgramCfgList: list = None
+    cfgProgramCfgFile: str = None
 
-    def __init__(self, fake_shell: bool):
+    def __init__(self):
         # get dirs
         self.cfgProgramDir = Env.get_program_dir()
         self.cfgProgramCmdDir = Env.get_program_cmd_dir()
         self.cfgProgramCfgDir = Env.get_program_cfg_dir()
         self.cfgProgramCmdList = Env.get_program_cmd_list()
         self.cfgProgramCfgList = Env.get_program_cfg_list()
-        self.cfgGlobalFakeShell = fake_shell
 
     def load_cfg(self, project: str) -> Config:
         cfg = self._load_class('cfg', project)
@@ -39,7 +36,6 @@ class Env(object):
             cfg.cfgProgramCmdList = self.cfgProgramCmdList
             cfg.cfgProgramCfgList = self.cfgProgramCfgList
             cfg.cfgProgramCfgFile = os.path.abspath('%s/%s' % (self.cfgProgramCfgDir, project))
-            cfg.cfgGlobalFakeShell = self.cfgGlobalFakeShell
 
         return cfg
 
@@ -50,8 +46,6 @@ class Env(object):
     def _load_class(module: str, clazz: str):
         available_list = Env.get_program_module_list(Env.get_program_module_dir(module))
         if clazz not in available_list:
-            #  Print.red('invalid module: [%s] or class: [%s]' % (module, clazz))
-            #  Print.red('available clazz are: %s' % available_list)
             return None
 
         # load module

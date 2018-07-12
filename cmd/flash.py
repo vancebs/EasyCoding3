@@ -1,25 +1,27 @@
 #!/usr/bin/python
 # coding=utf-8
 
-from cfg.base.Config import Config
 from cmd.base.Cmd import Cmd
 from script.util.Print import Print
 
 
 class flash(Cmd):
-    def on_run(self, cfg: Config, *params):
+    _INIT_WORK_DIR: bool = True
+    _RESTORE_WORK_DIR: bool = True
+
+    def on_run(self, *params) -> bool:
         # assign path
-        flash_path = cfg.cfgProjectOutDir
+        flash_path = self.cfg.cfgProjectOutDir
         if len(params) > 0 and (params[0] == '--path' or params[0] == '-p'):
             if len(params) < 2:
                 Print.red('invalid format of command')
                 self.help()
-                return
+                return False
             flash_path = params[1]
             params = params[2:]
         
         # get flash list
-        flash_dict = cfg.cfgProjectFlashMap
+        flash_dict = self.cfg.cfgProjectFlashMap
         if len(params) > 0:
             tmp_dict = dict()
             for p in params:
@@ -28,14 +30,16 @@ class flash(Cmd):
                 else:
                     Print.red('unknown partition: %s' % p)
                     self.help()
-                    return
+                    return False
             flash_dict = tmp_dict
 
         # do flash
-        self.shell(cfg, 'sudo adb reboot bootloader')
+        self.shell('sudo adb reboot bootloader')
         for partition, img in flash_dict.items():
-            self.shell(cfg, 'sudo fastboot flash %s %s/%s' % (partition, flash_path, img))
-        self.shell(cfg, 'sudo fastboot reboot')
+            self.shell('sudo fastboot flash %s %s/%s' % (partition, flash_path, img))
+        self.shell('sudo fastboot reboot')
+
+        return True
     
     @staticmethod
     def help():

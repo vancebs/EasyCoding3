@@ -7,11 +7,11 @@ import platform
 class Print(object):
     _sImpl = None
 
-    BLUE = None
-    GREEN = None
-    RED = None
-    YELLOW = None
-    WHITE = None
+    BLUE: int = None
+    GREEN: int = None
+    RED: int = None
+    YELLOW: int = None
+    WHITE: int = None
 
     @staticmethod
     def _get_impl():
@@ -115,7 +115,7 @@ class Print(object):
 
         @staticmethod
         def print(msg: str, color: int=FOREGROUND_WHITE):
-            print('\033[%dm%s\033[0m' % (color, msg))
+            print('echo \033[%dm%s\033[0m' % (color, msg))
         
         def red(self, msg: str):
             self.print(msg, self.FOREGROUND_RED)

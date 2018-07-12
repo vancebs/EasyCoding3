@@ -1,0 +1,58 @@
+#!/usr/bin/python
+# coding=utf-8
+
+from cmd.base.Cmd import Cmd
+
+import datetime
+import os
+
+
+class clone(Cmd):
+    _INIT_WORK_DIR: bool = True
+    _RESTORE_WORK_DIR: bool = True
+
+    def on_run(self, *params) -> bool:
+        project_dir = self.cfg.cfgProjectRootDir
+        date_file = '.date'
+        date = datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
+        temp_dir = '%s/%s' % (self.cfg.cfgProjectBackupDir, date)
+
+        # prepare temp dir under backup dir
+        os.makedirs(temp_dir)  # create dir
+        self.cd(temp_dir)  # switch to temp dir
+        self.shell('eval echo "%s" > ./%s' % (date, date_file))  # create .date file
+
+        # copy file from old project
+        self.shell('cp - f "%s/.classpath" "%s/.classpath"' % (project_dir, temp_dir))
+        self.shell('cp - f "%s/.project" "%s/.project"' % (project_dir, temp_dir))
+        self.shell('cp - rf "%s/.vscode" "%s/.vscode"' % (project_dir, temp_dir))
+
+        # prepare the input text & repo command
+        repo_input = '%s\r%s\ry\r' % (self.cfg.cfgGlobalUserName, self.cfg.cfgGlobalUserEmail)
+        repo_cmd = '%s init -u %s -m %s.xml --depth=1 --config-name' % (self.cfg.cfgProjectRepoBin,
+                                                                        self.cfg.cfgProjectUrlRepoPull,
+                                                                        self.cfg.cfgProjectBranch)
+
+        # start clone
+        self.shell('eval echo %s | %s' % (repo_input, repo_cmd))
+        self.shell('%s sync -j4' % self.cfg.cfgProjectRepoBin)
+        self.shell('%s start "%s" --all' % (self.cfg.cfgProjectRepoBin, self.cfg.cfgProjectBranch))
+
+        # move project dir to backup
+        old_date = '%s_backup' % date
+        old_date_path = '%s/%s' % (self.cfg.cfgProjectRootDir, date_file)
+        if os.path.exists(old_date_path) and os.path.isfile(old_date_path):
+            with open(old_date_path) as date_file:
+                old_date = date_file.readline().strip()
+        backup_dir = '%s/%s' % (self.cfg.cfgProjectBackupDir, old_date)
+        self.shell('mv -f "%s" "%s"' % (project_dir, backup_dir))
+
+        # move temp dir to project dir
+        self.shell('mv -f "%s" "%s"' % (temp_dir, project_dir))
+
+        # apply ccache
+        self.cd(project_dir)
+        # TODO self.run_cmd(env())
+        self.shell('%s/prebuilts/misc/linux-x86/ccache/ccache -M 50G' % project_dir)
+
+        return True
