@@ -4,13 +4,20 @@
 from cmd.base.Cmd import Cmd
 from script.util.Print import Print
 
+import os
+
 
 class croot(Cmd):
     _INIT_WORK_DIR: bool = False
     _RESTORE_WORK_DIR: bool = False
 
     def on_run(self, *params) -> bool:
-        return self.cd(self.cfg.cfgProjectRootDir)
+        root_dir = self.cfg.cfgProjectRootDir
+        if os.path.exists(root_dir):
+            return self.cd(root_dir)
+        else:
+            Print.red('root path not exists. path: %s' % root_dir)
+            return False
 
     @staticmethod
     def help():

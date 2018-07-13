@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="85a6aaf2-de71-493c-b196-52427149a114" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auto_complete" beforeDir="false" afterPath="$PROJECT_DIR$/auto_complete" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ec3.sh" beforeDir="false" afterPath="$PROJECT_DIR$/ec3.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/cout.py" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/cout.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/croot.py" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/croot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/install" beforeDir="false" afterPath="$PROJECT_DIR$/install" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,59 +17,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Cmd.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cmd/base/Cmd.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="40" column="13" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="13" />
-              <folding>
-                <element signature="e#35#70#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="adbpush.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cmd/adbpush.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="79" column="20" selection-start-line="79" selection-start-column="20" selection-end-line="79" selection-end-column="20" />
-              <folding>
-                <element signature="e#34#62#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="adbsync.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cmd/adbsync.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
-              <folding>
-                <element signature="e#34#62#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mm.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cmd/mm.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
-              <folding>
-                <element signature="e#34#62#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ec3.sh" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ec3.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="68" column="13" selection-start-line="68" selection-start-column="13" selection-end-line="68" selection-end-column="13" />
+            <state relative-caret-position="60">
+              <caret line="31" column="28" lean-forward="true" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="install" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/install">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="46" column="55" selection-start-line="46" selection-start-column="55" selection-end-line="46" selection-end-column="55" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="401">
+              <caret line="106" column="1" selection-start-line="106" selection-start-column="1" selection-end-line="106" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -84,11 +56,44 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="auto_complete" pinned="false" current-in-tab="true">
+      <file leaf-file-name="auto_complete" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/auto_complete">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="41" lean-forward="true" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
+            <state relative-caret-position="330">
+              <caret line="22" column="33" lean-forward="true" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cout.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cmd/cout.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" selection-start-line="14" selection-end-line="19" selection-end-column="24" />
+              <folding>
+                <element signature="e#34#62#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="croot.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cmd/croot.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="17" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+              <folding>
+                <element signature="e#34#62#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GlobalConfig.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cfg/base/GlobalConfig.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
             </state>
           </provider>
         </entry>
@@ -107,18 +112,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
               <caret line="21" column="49" lean-forward="true" selection-start-line="21" selection-start-column="49" selection-end-line="21" selection-end-column="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="make.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cmd/make.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="29" column="88" selection-start-line="29" selection-start-column="88" selection-end-line="29" selection-end-column="88" />
-              <folding>
-                <element signature="e#34#62#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -172,8 +165,6 @@
         <option value="$PROJECT_DIR$/script/ShellLog.py" />
         <option value="$PROJECT_DIR$/script/EasyCoding.py" />
         <option value="$PROJECT_DIR$/cfg/base/Config.py" />
-        <option value="$PROJECT_DIR$/cmd/cout.py" />
-        <option value="$PROJECT_DIR$/cmd/croot.py" />
         <option value="$PROJECT_DIR$/cmd/clone.py" />
         <option value="$PROJECT_DIR$/cmd/dump.py" />
         <option value="$PROJECT_DIR$/cmd/sys.py" />
@@ -191,7 +182,6 @@
         <option value="$PROJECT_DIR$/cmd/clean.py" />
         <option value="$PROJECT_DIR$/cmd/adbpush.py" />
         <option value="$PROJECT_DIR$/cmd/gitpush.py" />
-        <option value="$PROJECT_DIR$/install" />
         <option value="$PROJECT_DIR$/ec3.py" />
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/script/util/Print.py" />
@@ -201,12 +191,16 @@
         <option value="$PROJECT_DIR$/cmd/flash.py" />
         <option value="$PROJECT_DIR$/ec3.sh" />
         <option value="$PROJECT_DIR$/auto_complete" />
+        <option value="$PROJECT_DIR$/cmd/cout.py" />
+        <option value="$PROJECT_DIR$/cmd/croot.py" />
+        <option value="$PROJECT_DIR$/install" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="602" />
-    <option name="y" value="24" />
+    <option name="x" value="74" />
+    <option name="y" value="137" />
     <option name="width" value="1398" />
     <option name="height" value="828" />
   </component>
@@ -231,17 +225,6 @@
               <item name="EasyCoding3" type="b2602c69:ProjectViewProjectNode" />
               <item name="EasyCoding3" type="462c0819:PsiDirectoryNode" />
               <item name="cfg" type="462c0819:PsiDirectoryNode" />
-              <item name="base" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="EasyCoding3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="EasyCoding3" type="462c0819:PsiDirectoryNode" />
-              <item name="cmd" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="EasyCoding3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="EasyCoding3" type="462c0819:PsiDirectoryNode" />
-              <item name="cmd" type="462c0819:PsiDirectoryNode" />
               <item name="base" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -348,7 +331,7 @@
     <frame x="65" y="-4" width="1535" height="904" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23148148" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23148148" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32858992" />
@@ -356,7 +339,7 @@
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32729626" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.309185" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32988358" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32988358" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39741752" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -375,7 +358,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/cmd/cout.py</url>
-          <line>12</line>
+          <line>16</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -394,14 +377,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1121" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/GlobalConfig.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -516,23 +491,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cfg/base/__init__py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmd/cout.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmd/croot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-          <folding>
-            <element signature="e#34#62#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cmd/dump.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -668,13 +626,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/install">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="30" column="4" lean-forward="true" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/script/EasyCoding.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -786,17 +737,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ec3.sh">
+    <entry file="file://$PROJECT_DIR$/auto_complete">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="68" column="13" selection-start-line="68" selection-start-column="13" selection-end-line="68" selection-end-column="13" />
+        <state relative-caret-position="330">
+          <caret line="22" column="33" lean-forward="true" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/auto_complete">
+    <entry file="file://$PROJECT_DIR$/cmd/cout.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="41" lean-forward="true" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
+        <state relative-caret-position="210">
+          <caret line="14" selection-start-line="14" selection-end-line="19" selection-end-column="24" />
+          <folding>
+            <element signature="e#34#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmd/croot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="17" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+          <folding>
+            <element signature="e#34#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfg/base/GlobalConfig.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ec3.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="31" column="28" lean-forward="true" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/install">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="46" column="55" selection-start-line="46" selection-start-column="55" selection-end-line="46" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="106" column="1" selection-start-line="106" selection-start-column="1" selection-end-line="106" selection-end-column="1" />
         </state>
       </provider>
     </entry>

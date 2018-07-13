@@ -9,6 +9,8 @@ _EC_PATH="$_SCRIPT_DIR/ec3.sh"
 _NEED_INSTALL="TRUE"
 _NEED_UPGRADE="FALSE"
 _INSTALL_KEY="alias $_CMD_NAME='source $_EC_PATH'"
+_GLOBAL_CONFIG_PATH="$_SCRIPT_DIR/GlobalConfig.py"
+_GLOBAL_CONFIG_TEMPLATE_PATH="$_SCRIPT_DIR/cfg/base/GlobalConfig.py"
 
 # start info
 echo "Start installing ..."
@@ -38,6 +40,13 @@ else
     echo "If you still cannot use $_APP_NAME. Please restart your terminal and try again"
 fi
 
+# copy GlobalConfig.py if necessary
+if [ -e ${_GLOBAL_CONFIG_PATH} ]; then
+    echo "GlobalConfig.py already exists. Ignore copy"
+else
+    cp -f ${_GLOBAL_CONFIG_TEMPLATE_PATH} ${_GLOBAL_CONFIG_PATH}
+fi
+
 # pause
 echo "press enter key to exit"
 read _PAUSE
@@ -51,3 +60,5 @@ unset _SCRIPT_DIR
 unset _EC_PATH
 unset _INSTALL_KEY
 unset _NEED_INSTALL
+unset _GLOBAL_CONFIG_PATH
+unset _GLOBAL_CONFIG_TEMPLATE_PATH
