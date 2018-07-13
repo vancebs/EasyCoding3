@@ -33,7 +33,7 @@ function execScript {
     rm ${PIPE_OUT_PATH}
 
     # start script
-    ${PYTHON_BIN} ${PYTHON_SCRIPT} $@ >&6 <&7 &
+    OUT=$(${PYTHON_BIN} ${PYTHON_SCRIPT} $@ >&6 <&7 &)
 
     # read and exec
     while [[ TRUE ]]; do

@@ -1,9 +1,9 @@
 #! /bin/bash
 
 # get script path
-export SCRIPT_PATH=$(readlink -f "${BASH_SOURCE[0]}")
-export SCRIPT_DIR=$(dirname ${SCRIPT_PATH})
-EC_PATH="ec"
+export EC_SCRIPT_PATH=$(readlink -f "${BASH_SOURCE[0]}")
+export EC_SCRIPT_DIR=$(dirname ${EC_SCRIPT_PATH})
+export EC_PATH="ec"
 
 # load dir
 function loadDirList() {
@@ -38,17 +38,17 @@ function ec_auto_complete() {
 	# find parameters start with -
 	local index=$COMP_CWORD
     for w in ${COMP_WORDS[@]}; do
-        if [[ $w == -* ]]; then
+        if [[ ${w} == -* ]]; then
             index=$((index - 1))
         fi
     done
 	
 	case "$index" in
 	1)
-		loadDirList "$SCRIPT_DIR/cfg" "LIST"
+		loadDirList "$EC_SCRIPT_DIR/cfg" "LIST"
 		;;
 	2)
-		loadDirList "$SCRIPT_DIR/cmd" "LIST"
+		loadDirList "$EC_SCRIPT_DIR/cmd" "LIST"
 		;;
 	esac
 
@@ -61,8 +61,8 @@ function ec_auto_complete() {
 
 complete -F ec_auto_complete "$EC_PATH"
 
-unset SCRIPT_PATH
-# unset SCRIPT_DIR # keep this value
+unset EC_SCRIPT_PATH
+# unset EC_SCRIPT_DIR # keep this value
 unset EC_PATH
 
 
