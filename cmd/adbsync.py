@@ -3,7 +3,6 @@
 
 from cmd.base.Cmd import Cmd
 from script.util.Print import Print
-from cmd.env import env
 
 
 class adbsync(Cmd):
@@ -11,7 +10,7 @@ class adbsync(Cmd):
     _RESTORE_WORK_DIR: bool = False
 
     def on_run(self, *params) -> bool:
-        if not self.run_cmd(env()):
+        if not self.env_setup():
             return False
 
         self.shell('adb root')

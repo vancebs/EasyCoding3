@@ -2,7 +2,6 @@
 # coding=utf-8
 
 from cmd.base.Cmd import Cmd
-from cmd.env import env
 from script.util.Print import Print
 
 import datetime
@@ -16,7 +15,7 @@ class make(Cmd):
 
     def on_run(self, *params) -> bool:
         # setup env
-        if not self.run_cmd(env()):
+        if not self.env_setup():
             return False
 
         # do make

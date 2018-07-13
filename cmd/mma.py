@@ -2,7 +2,6 @@
 # coding=utf-8
 
 from cmd.base.Cmd import Cmd
-from cmd.env import env
 from script.util.Print import Print
 
 
@@ -12,7 +11,7 @@ class mma(Cmd):
 
     def on_run(self, *params) -> bool:
         # setup env
-        if self.run_cmd(env()):
+        if self.env_setup():
             return False
 
         # mma

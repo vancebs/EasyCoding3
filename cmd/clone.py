@@ -63,7 +63,6 @@ class clone(Cmd):
 
         # apply ccache
         self.cd(project_dir)
-        # TODO self.run_cmd(env())
         self.shell('%s/prebuilts/misc/linux-x86/ccache/ccache -M 50G' % project_dir)
 
         return True

@@ -1,10 +1,10 @@
 #!/usr/bin/python
 # coding=utf-8
 
-
 from script.util.Print import Print
 from cfg.base.Config import Config
 from script.Shell import Shell
+
 import os
 
 
@@ -14,6 +14,7 @@ class Cmd(object):
 
     _mShell: Shell
     cfg: Config
+    env = None
 
     def run(self, shell: Shell, cfg: Config, *params) -> bool:
         # save cfg & shell
@@ -33,7 +34,7 @@ class Cmd(object):
             self.cd(pwd)
 
         return success
-    
+
     def on_run(self, *params) -> bool:  # True: success, False: failed
         Print.yellow('empty implement of run()# params: %s' % params)
         return True
@@ -41,7 +42,12 @@ class Cmd(object):
     def shell(self, cmd: str) -> int:
         return self._mShell.exec(cmd)
 
+    def cmd(self, cmd: str, *params) -> bool:
+        loaded_cmd = self.env.load_cmd(cmd)
+        return loaded_cmd.run(self._mShell, self.cfg, *params)
+
     def run_cmd(self, cmd, *params) -> bool:
+        cmd.env = self.env
         return cmd.run(self._mShell, self.cfg, *params)
 
     def cd(self, path: str) -> bool:
@@ -56,3 +62,10 @@ class Cmd(object):
     @staticmethod
     def pwd() -> str:
         return os.environ['PWD']
+
+    def env_setup(self) -> bool:
+        return self.cmd('env')
+
+    @staticmethod
+    def help():
+        Print.yellow('Empty implement!!!')

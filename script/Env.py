@@ -40,7 +40,9 @@ class Env(object):
         return cfg
 
     def load_cmd(self, cmd: str) -> Cmd:
-        return self._load_class('cmd', cmd)
+        loaded_cmd = self._load_class('cmd', cmd)
+        loaded_cmd.env = self  # set env
+        return loaded_cmd
 
     @staticmethod
     def _load_class(module: str, clazz: str):

@@ -2,7 +2,6 @@
 # coding=utf-8
 
 from cmd.base.Cmd import Cmd
-from cmd.env import env
 from script.util.Print import Print
 
 
@@ -12,7 +11,7 @@ class addr2line(Cmd):
 
     def on_run(self, *params) -> bool:
         # env
-        if not self.run_cmd(env()):
+        if not self.env_setup():
             return False
 
         # addr2line
