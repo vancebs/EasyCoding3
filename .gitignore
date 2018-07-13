@@ -105,3 +105,4 @@ venv.bak/
 
 # GlobalConfig.py
 /GlobalConfig.py
+/GlobalBashConfig.sh

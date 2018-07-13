@@ -3,7 +3,7 @@
 # get script path
 SCRIPT_PATH=$(readlink -f "${BASH_SOURCE[0]}")
 SCRIPT_DIR=$(dirname ${SCRIPT_PATH})
-PYTHON_BIN=python
+#PYTHON_BIN=python
 PYTHON_SCRIPT=${SCRIPT_DIR}/ec3.py
 PIPE_IN_PATH=/tmp/$$.in.fifo
 PIPE_OUT_PATH=/tmp/$$.out.fifo
@@ -14,6 +14,9 @@ COLOR_GREEN=32
 COLOR_YELLOW=33
 COLOR_BLUE=34
 COLOR_WHITE=37
+
+# load config
+source ${SCRIPT_DIR}/GlobalBashConfig.sh
 
 function print() {
     # $1 color index

@@ -11,6 +11,7 @@ _NEED_UPGRADE="FALSE"
 _INSTALL_KEY="alias $_CMD_NAME='source $_EC_PATH'"
 _GLOBAL_CONFIG_PATH="$_SCRIPT_DIR/GlobalConfig.py"
 _GLOBAL_CONFIG_TEMPLATE_PATH="$_SCRIPT_DIR/cfg/base/GlobalConfig.py"
+_GLOBAL_BASH_CONFIG_PATH="$_SCRIPT_DIR/GlobalBashConfig.sh"
 
 # start info
 echo "Start installing ..."
@@ -47,6 +48,13 @@ else
     cp -f ${_GLOBAL_CONFIG_TEMPLATE_PATH} ${_GLOBAL_CONFIG_PATH}
 fi
 
+# create global bash config if necessary
+if [ -e ${_GLOBAL_BASH_CONFIG_PATH} ]; then
+    echo "GlobalBashConfig.sh already exists. Ignore create"
+else
+    echo "export PYTHON_BIN=/usr/bin/python3.6" > ${_GLOBAL_BASH_CONFIG_PATH}
+fi
+
 # pause
 echo "press enter key to exit"
 read _PAUSE
@@ -62,3 +70,4 @@ unset _INSTALL_KEY
 unset _NEED_INSTALL
 unset _GLOBAL_CONFIG_PATH
 unset _GLOBAL_CONFIG_TEMPLATE_PATH
+unset _GLOBAL_BASH_CONFIG_PATH
