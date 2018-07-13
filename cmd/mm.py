@@ -12,7 +12,8 @@ class mm(Cmd):
 
     def on_run(self, *params) -> bool:
         # setup env
-        self.run_cmd(env())
+        if self.run_cmd(env()):
+            return False
 
         # mm
         self.shell('mm %s' % ' '.join(params))

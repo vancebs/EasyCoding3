@@ -3,6 +3,7 @@
 
 from cmd.base.Cmd import Cmd
 from script.util.Print import Print
+import os
 
 
 class setup(Cmd):
@@ -10,26 +11,28 @@ class setup(Cmd):
     _RESTORE_WORK_DIR: bool = False
 
     def on_run(self, *params) -> bool:
-        # init path
-        link_adb = '/opt/bin/adb'
-        link_fastboot = '/opt/bin/fastboot'
-        target_adb = '%s/out/host/linux-x86/bin/adb' % self.cfg.cfgProjectRootDir
-        target_fastboot = '%s/out/host/linux-x86/bin/fastboot' % self.cfg.cfgProjectRootDir
-
-        # remove old link
-        self.shell('rm -rf %s' % link_adb)
-        self.shell('rm -rf %s' % link_fastboot)
-
-        # new link
-        self.shell('ln -s %s %s' % (target_adb, link_adb))
-        self.shell('ln -s %s %s' % (target_fastboot, link_fastboot))
+        # create link
+        result = True
+        result &= self.link('/opt/bin/adb', '%s/out/host/linux-x86/bin/adb' % self.cfg.cfgProjectRootDir)
+        result &= self.link('/opt/bin/fastboot', '%s/out/host/linux-x86/bin/fastboot' % self.cfg.cfgProjectRootDir)
 
         # restart adb
-        self.shell('adb kill-server')
-        self.shell('sudo adb devices')
+        if result:
+            self.shell('adb kill-server')
+            self.shell('sudo adb devices')
 
         return True
 
+    def link(self, link: str, target: str) -> bool:
+        if os.path.exists(target):
+            self.shell('rm -rf %s' % link)  # remove old link
+            self.shell('ln -s %s %s' % (target, link))  # create new link
+            Print.green('create link: %s => %s' % (link, target))
+            return True
+        else:
+            Print.yellow('target [%s] not exists. ignore it' % target)
+            return False
+
     @staticmethod
     def help():
-        Print.yellow('AOSP mmm')
+        Print.yellow('setup adb & fastboot for this project')

@@ -4,6 +4,8 @@
 from cmd.base.Cmd import Cmd
 from script.util.Print import Print
 
+import os
+
 
 class flash(Cmd):
     _INIT_WORK_DIR: bool = True
@@ -34,10 +36,20 @@ class flash(Cmd):
             flash_dict = tmp_dict
 
         # do flash
+        flashed = False
         self.shell('sudo adb reboot bootloader')
         for partition, img in flash_dict.items():
-            self.shell('sudo fastboot flash %s %s/%s' % (partition, flash_path, img))
+            path = '%s/%s' % (flash_path, img)
+            if os.path.exists(path):
+                flashed = True
+                Print.green('flashing [%s] ...' % img)
+                self.shell('sudo fastboot flash %s %s' % (partition, path))
+                Print.green('Done')
         self.shell('sudo fastboot reboot')
+
+        # warning for not flash
+        if not flashed:
+            Print.yellow('No img found to be flashed!!')
 
         return True
     

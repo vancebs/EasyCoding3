@@ -5,7 +5,8 @@ SCRIPT_PATH=$(readlink -f "${BASH_SOURCE[0]}")
 SCRIPT_DIR=$(dirname ${SCRIPT_PATH})
 PYTHON_BIN=python
 PYTHON_SCRIPT=${SCRIPT_DIR}/ec3.py
-PIPE_PATH=/tmp/$$.fifo
+PIPE_IN_PATH=/tmp/$$.in.fifo
+PIPE_OUT_PATH=/tmp/$$.out.fifo
 CTRL_C_DETECTED=FALSE
 
 COLOR_RED=31
@@ -21,13 +22,18 @@ function print() {
 }
 
 function execScript {
-    # init pipe
-    mkfifo ${PIPE_PATH}
-    exec 6<>${PIPE_PATH}
-    rm ${PIPE_PATH}
+    # init pipe in
+    mkfifo ${PIPE_IN_PATH}
+    exec 6<>${PIPE_IN_PATH}
+    rm ${PIPE_IN_PATH}
+
+    # init pipe out
+    mkfifo ${PIPE_OUT_PATH}
+    exec 7<>${PIPE_OUT_PATH}
+    rm ${PIPE_OUT_PATH}
 
     # start script
-    ${PYTHON_BIN} ${PYTHON_SCRIPT} $@ >&6
+    ${PYTHON_BIN} ${PYTHON_SCRIPT} $@ >&6 <&7 &
 
     # read and exec
     while [[ TRUE ]]; do
@@ -46,12 +52,21 @@ function execScript {
         fi
 
         # run command
-        ${line}
+        if [[ ${line} == "cmd:"* ]]; then
+            # run command
+            ${line#cmd:}
 
+            # feedback exit code
+            echo "$?" >&7
+        else
+            # echo message
+            echo "${line}"
+        fi
     done
 
     # release pipe
     exec 6>&-
+    exec 7>&-
 }
 
 function onCtrlC () {
@@ -70,7 +85,8 @@ unset SCRIPT_PATH
 unset SCRIPT_DIR
 unset PYTHON_BIN
 unset PYTHON_SCRIPT
-unset PIPE_PATH
+unset PIPE_IN_PATH
+unset PIPE_OUT_PATH
 unset CTRL_C_DETECTED
 
 unset COLOR_RED

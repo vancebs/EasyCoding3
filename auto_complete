@@ -1,0 +1,68 @@
+#! /bin/bash
+
+# get script path
+export SCRIPT_PATH=$(readlink -f "${BASH_SOURCE[0]}")
+export SCRIPT_DIR=$(dirname ${SCRIPT_PATH})
+EC_PATH="ec"
+
+# load dir
+function loadDirList() {
+    # $1: Dir to load
+    # $2: Parameter to receive the result
+    unset $2
+    i="0"
+    for file in $1/*; do
+        name="${file#$1/}"
+
+        if [ -d "$file" ]; then
+            continue
+        elif [ "$name" == "__init__.py" ]; then
+            continue
+        fi
+        
+        eval $2[$i]="${name%.py}"
+        i=$((i + 1))
+    done
+
+    # clean up
+    unset file
+    unset i
+}
+
+function ec_auto_complete() {
+	local cmd="${1##*/}"
+	local word=${COMP_WORDS[COMP_CWORD]}
+	local line=${COMP_LINE}
+	local list
+	
+	# find parameters start with -
+	local index=$COMP_CWORD
+    for w in ${COMP_WORDS[@]}; do
+        if [[ $w == -* ]]; then
+            index=$((index - 1))
+        fi
+    done
+	
+	case "$index" in
+	1)
+		loadDirList "$SCRIPT_DIR/cfg" "LIST"
+		;;
+	2)
+		loadDirList "$SCRIPT_DIR/cmd" "LIST"
+		;;
+	esac
+
+	list="${LIST[@]}"
+	COMPREPLY=( $(compgen -W "$list" -- "$word") )
+
+	unset LIST
+	return 0
+}
+
+complete -F ec_auto_complete "$EC_PATH"
+
+unset SCRIPT_PATH
+# unset SCRIPT_DIR # keep this value
+unset EC_PATH
+
+

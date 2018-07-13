@@ -115,7 +115,7 @@ class Print(object):
 
         @staticmethod
         def print(msg: str, color: int=FOREGROUND_WHITE):
-            print('echo \033[%dm%s\033[0m' % (color, msg))
+            print('\033[%dm%s\033[0m' % (color, msg))
         
         def red(self, msg: str):
             self.print(msg, self.FOREGROUND_RED)

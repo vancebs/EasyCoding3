@@ -16,7 +16,8 @@ class make(Cmd):
 
     def on_run(self, *params) -> bool:
         # setup env
-        self.run_cmd(env())
+        if not self.run_cmd(env()):
+            return False
 
         # do make
         force_make = False

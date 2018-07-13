@@ -10,6 +10,7 @@ class unroot(Cmd):
     _RESTORE_WORK_DIR: bool = False
 
     def on_run(self, *params) -> bool:
+        self.shell('adb enable-verity')
         self.shell('adb shell setprop ro.secure 1')
         self.shell('adb shell setprop ro.debuggable 0')
         self.shell('adb shell setprop ro.allow.mock.location 0')

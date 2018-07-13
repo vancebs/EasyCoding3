@@ -21,7 +21,7 @@ class Cmd(object):
         self.cfg = cfg
 
         # save pwd & switch to project root dir
-        pwd = os.environ['PWD']
+        pwd = self.pwd()
         if self._INIT_WORK_DIR:
             self.cd(self.cfg.cfgProjectRootDir)
 
@@ -41,8 +41,8 @@ class Cmd(object):
     def shell(self, cmd: str) -> int:
         return self._mShell.exec(cmd)
 
-    def run_cmd(self, cmd, *params):
-        cmd.run(self._mShell, self.cfg, *params)
+    def run_cmd(self, cmd, *params) -> bool:
+        return cmd.run(self._mShell, self.cfg, *params)
 
     def cd(self, path: str) -> bool:
         path = os.path.abspath(path)
@@ -52,3 +52,7 @@ class Cmd(object):
             return True
         else:
             return False
+
+    @staticmethod
+    def pwd() -> str:
+        return os.environ['PWD']

@@ -2,18 +2,30 @@
   <dictionary name="hufan">
     <words>
       <w>adbd</w>
+      <w>adbpush</w>
+      <w>adbsync</w>
+      <w>addr</w>
       <w>aosp</w>
+      <w>bashrc</w>
+      <w>bootjars</w>
       <w>bootloader</w>
       <w>ccache</w>
       <w>choosecombo</w>
+      <w>compreply</w>
       <w>cout</w>
       <w>croot</w>
+      <w>cust</w>
       <w>custpack</w>
       <w>envsetup</w>
       <w>fastboot</w>
+      <w>gitpush</w>
       <w>hlos</w>
       <w>hufan</w>
+      <w>mkdir</w>
+      <w>odex</w>
+      <w>perso</w>
       <w>prebuilts</w>
+      <w>priv</w>
       <w>quic</w>
       <w>quicl</w>
       <w>setenforce</w>

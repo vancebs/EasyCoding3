@@ -28,9 +28,24 @@ class Shell(object):
         Print.green('=====> stop shell')
         print('==end==')
 
-    def exec(self, cmd: str):
+    def exec(self, cmd: str) -> int:
         if self._mFakeExec:
             cmd = cmd.replace('\r', '\\\\r')
-            print('echo %s' % cmd)
+            Print.white(cmd)
+            return 0
         else:
-            print(cmd)
+            # print(cmd)
+            return self._exec_internal(cmd)
+
+    @staticmethod
+    def _exec_internal(cmd: str) -> int:
+        # send command
+        print('cmd:%s' % cmd)
+
+        # receive exit code
+        line = input()
+
+        try:
+            return int(line)
+        except ValueError:
+            return 10086  # unknown error

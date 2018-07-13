@@ -19,6 +19,7 @@ class root(Cmd):
         self.shell('adb wait-for-device')
         self.shell('adb shell /system/bin/setenforce 0')
         self.shell('adb remount')
+        self.shell('adb disable-verity')
 
         Print.green('Rooted')
 
