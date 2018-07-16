@@ -38,7 +38,7 @@ class clone(Cmd):
                 params.remove(p)
 
         # prepare temp dir under backup dir
-        os.makedirs(temp_dir)  # create dir
+        os.makedirs(temp_dir, exist_ok=True)  # create dir
         self.cd(temp_dir)  # switch to temp dir
         self.shell('eval echo "%s" > ./%s' % (date, date_file))  # create .date file
 
