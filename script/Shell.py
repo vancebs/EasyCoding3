@@ -7,6 +7,9 @@ from script.util.Print import Print
 class Shell(object):
     _mFakeExec: bool
 
+    _PREFIX_CMD = 'cmd:'
+    _PREFIX_FUNC = 'func:'
+
     def __init__(self, fake_exec: bool=False):
         self._mFakeExec = fake_exec
 
@@ -37,15 +40,29 @@ class Shell(object):
             # print(cmd)
             return self._exec_internal(cmd)
 
-    @staticmethod
-    def _exec_internal(cmd: str) -> int:
+    def _exec_internal(self, cmd: str) -> int:
         # send command
-        print('cmd:%s' % cmd)
+        print('%s%s' % (self._PREFIX_CMD, cmd))
 
         # receive exit code
         line = input()
 
+        # get exit code
         try:
             return int(line)
         except ValueError:
             return 10086  # unknown error
+
+    def func(self, cmd: str) -> str:
+        # send command
+        print('%s%s' % (self._PREFIX_FUNC, cmd))
+
+        # receive output
+        output = []
+        line = input().strip()
+        while not line == '==end==':
+            output.append(line)
+            line = input().strip()
+
+        # get result
+        return '\n'.join(output).strip()

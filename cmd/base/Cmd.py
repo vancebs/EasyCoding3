@@ -45,6 +45,9 @@ class Cmd(object):
     def shell(self, cmd: str) -> int:
         return self._mShell.exec(cmd)
 
+    def func(self, cmd: str) -> str:
+        return self._mShell.func(cmd)
+
     def cmd(self, cmd: str, *params) -> bool:
         loaded_cmd = self.env.load_cmd(cmd)
         return loaded_cmd.run(self._mShell, self.cfg, *params)

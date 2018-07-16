@@ -2,30 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="85a6aaf2-de71-493c-b196-52427149a114" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/adbpush.py" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/adbpush.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/adbsync.py" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/adbsync.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/addr2line.py" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/addr2line.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/base/Cmd.py" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/base/Cmd.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/clean.py" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/clean.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/clone.py" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/clone.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/cout.py" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/cout.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/croot.py" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/croot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/dump.py" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/dump.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/env.py" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/env.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/flash.py" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/flash.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/gitpush.py" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/gitpush.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/help.py" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/help.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/make.py" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/make.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/mm.py" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/mm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/mma.py" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/mma.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/mmm.py" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/mmm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/root.py" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/root.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/sys.py" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/sys.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/ubuntu_version.py" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/ubuntu_version.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/unroot.py" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/unroot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ec3.sh" beforeDir="false" afterPath="$PROJECT_DIR$/ec3.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script/Shell.py" beforeDir="false" afterPath="$PROJECT_DIR$/script/Shell.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,59 +15,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="mm.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cmd/mm.py">
+      <file leaf-file-name="EasyCoding.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/script/EasyCoding.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+            <state relative-caret-position="286">
+              <caret line="71" column="61" selection-start-line="71" selection-start-column="61" selection-end-line="71" selection-end-column="61" />
               <folding>
-                <element signature="e#34#62#0" expanded="true" />
+                <element signature="e#34#69#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mma.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cmd/mma.py">
+      <file leaf-file-name="ec3.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ec3.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
-              <folding>
-                <element signature="e#34#62#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="401">
+              <caret line="69" column="30" selection-start-line="69" selection-start-column="30" selection-end-line="69" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mmm.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cmd/mmm.py">
+      <file leaf-file-name="Shell.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/script/Shell.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
-              <folding>
-                <element signature="e#34#62#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="286">
+              <caret line="62" column="36" lean-forward="true" selection-start-line="62" selection-start-column="36" selection-end-line="62" selection-end-column="36" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="root.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cmd/root.py">
+      <file leaf-file-name="dump.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cmd/dump.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
-              <folding>
-                <element signature="e#34#62#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="setup.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cmd/setup.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="106">
-              <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+            <state relative-caret-position="225">
+              <caret line="33" column="29" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
               <folding>
                 <element signature="e#34#62#0" expanded="true" />
               </folding>
@@ -104,6 +65,15 @@
               <folding>
                 <element signature="e#34#62#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Cmd.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cmd/base/Cmd.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="256">
+              <caret line="48" column="37" lean-forward="true" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -126,23 +96,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="make.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cmd/make.py">
+      <file leaf-file-name="help.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cmd/help.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-              <folding>
-                <element signature="e#34#62#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="331">
+              <caret line="35" column="48" lean-forward="true" selection-start-line="35" selection-start-column="48" selection-end-line="35" selection-end-column="48" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="help.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/cmd/help.py">
+      <file leaf-file-name="gitpush.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cmd/gitpush.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
+            <state relative-caret-position="1110">
+              <caret line="74" column="27" lean-forward="true" selection-start-line="74" selection-start-column="27" selection-end-line="74" selection-end-column="27" />
+              <folding>
+                <element signature="e#34#62#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -193,28 +163,23 @@
         <option value="$PROJECT_DIR$/GlobalConfig.py" />
         <option value="$PROJECT_DIR$/cfg/pm45.py" />
         <option value="$PROJECT_DIR$/script/ShellLog.py" />
-        <option value="$PROJECT_DIR$/script/EasyCoding.py" />
         <option value="$PROJECT_DIR$/cfg/base/Config.py" />
         <option value="$PROJECT_DIR$/ec3.py" />
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/script/util/Print.py" />
         <option value="$PROJECT_DIR$/cmd/test.py" />
-        <option value="$PROJECT_DIR$/script/Shell.py" />
         <option value="$PROJECT_DIR$/auto_complete" />
         <option value="$PROJECT_DIR$/cfg/base/GlobalConfig.py" />
         <option value="$PROJECT_DIR$/install" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/ec3.sh" />
         <option value="$PROJECT_DIR$/script/Env.py" />
         <option value="$PROJECT_DIR$/cmd/adbsync.py" />
         <option value="$PROJECT_DIR$/cmd/adbpush.py" />
-        <option value="$PROJECT_DIR$/cmd/base/Cmd.py" />
         <option value="$PROJECT_DIR$/cmd/addr2line.py" />
         <option value="$PROJECT_DIR$/cmd/clean.py" />
         <option value="$PROJECT_DIR$/cmd/clone.py" />
         <option value="$PROJECT_DIR$/cmd/cout.py" />
         <option value="$PROJECT_DIR$/cmd/croot.py" />
-        <option value="$PROJECT_DIR$/cmd/dump.py" />
         <option value="$PROJECT_DIR$/cmd/env.py" />
         <option value="$PROJECT_DIR$/cmd/flash.py" />
         <option value="$PROJECT_DIR$/cmd/gitpush.py" />
@@ -228,6 +193,11 @@
         <option value="$PROJECT_DIR$/cmd/ubuntu_version.py" />
         <option value="$PROJECT_DIR$/cmd/unroot.py" />
         <option value="$PROJECT_DIR$/cmd/help.py" />
+        <option value="$PROJECT_DIR$/ec3.sh" />
+        <option value="$PROJECT_DIR$/cmd/base/Cmd.py" />
+        <option value="$PROJECT_DIR$/script/Shell.py" />
+        <option value="$PROJECT_DIR$/cmd/dump.py" />
+        <option value="$PROJECT_DIR$/script/EasyCoding.py" />
       </list>
     </option>
   </component>
@@ -371,13 +341,13 @@
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23148148" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32858992" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32988358" />
-      <window_info anchor="bottom" id="Python Console" order="7" weight="0.32729626" />
+      <window_info anchor="bottom" id="Python Console" order="8" weight="0.32729626" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.309185" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32988358" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.32988358" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39715394" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -398,16 +368,6 @@
           <url>file://$PROJECT_DIR$/cmd/cout.py</url>
           <line>20</line>
           <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/cmd/gitpush.py</url>
-          <line>67</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/script/EasyCoding.py</url>
-          <line>48</line>
-          <option name="timeStamp" value="28" />
         </line-breakpoint>
       </breakpoints>
       <option name="time" value="29" />
@@ -534,13 +494,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/script/Shell.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/script/util/Print.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -590,13 +543,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ec3.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cmd/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -607,23 +553,6 @@
           <folding>
             <element signature="e#34#43#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/script/EasyCoding.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="61" column="34" selection-start-line="61" selection-start-column="26" selection-end-line="61" selection-end-column="34" />
-          <folding>
-            <element signature="e#34#69#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmd/base/Cmd.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -697,16 +626,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cmd/dump.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
-          <folding>
-            <element signature="e#34#62#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cmd/env.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -721,16 +640,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="91">
           <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-          <folding>
-            <element signature="e#34#62#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmd/gitpush.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
           <folding>
             <element signature="e#34#62#0" expanded="true" />
           </folding>
@@ -823,8 +732,59 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cmd/help.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
+        <state relative-caret-position="331">
+          <caret line="35" column="48" lean-forward="true" selection-start-line="35" selection-start-column="48" selection-end-line="35" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmd/gitpush.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1110">
+          <caret line="74" column="27" lean-forward="true" selection-start-line="74" selection-start-column="27" selection-end-line="74" selection-end-column="27" />
+          <folding>
+            <element signature="e#34#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ec3.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="69" column="30" selection-start-line="69" selection-start-column="30" selection-end-line="69" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmd/base/Cmd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="48" column="37" lean-forward="true" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/Shell.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="62" column="36" lean-forward="true" selection-start-line="62" selection-start-column="36" selection-end-line="62" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmd/dump.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="33" column="29" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
+          <folding>
+            <element signature="e#34#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/EasyCoding.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="71" column="61" selection-start-line="71" selection-start-column="61" selection-end-line="71" selection-end-column="61" />
+          <folding>
+            <element signature="e#34#69#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

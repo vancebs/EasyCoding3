@@ -61,6 +61,13 @@ function execScript {
 
             # feedback exit code
             echo "$?" >&7
+        elif [[ ${line} == "func:"* ]]; then
+            # run command & get output
+            result=$(${line#func:})
+
+            # feedback output
+            echo ${result} >&7
+            echo "==end==" >&7
         else
             # echo message
             echo "${line}"
