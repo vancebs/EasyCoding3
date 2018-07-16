@@ -9,6 +9,10 @@ class unroot(Cmd):
     _INIT_WORK_DIR: bool = False
     _RESTORE_WORK_DIR: bool = False
 
+    _HELP_MESSAGE = (
+        'Root user device. This command only available for device before MP.',
+    )
+
     def on_run(self, *params) -> bool:
         self.shell('adb enable-verity')
         self.shell('adb shell setprop ro.secure 1')
@@ -24,7 +28,3 @@ class unroot(Cmd):
         Print.green('Unrooted')
 
         return True
-
-    @staticmethod
-    def help():
-        Print.yellow('Root user device. This command only available for device before MP.')

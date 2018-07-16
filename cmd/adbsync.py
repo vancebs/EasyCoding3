@@ -9,6 +9,10 @@ class adbsync(Cmd):
     _INIT_WORK_DIR: bool = False
     _RESTORE_WORK_DIR: bool = False
 
+    _HELP_MESSAGE = (
+        'adb sync',
+    )
+
     def on_run(self, *params) -> bool:
         if not self.env_setup():
             return False
@@ -22,7 +26,3 @@ class adbsync(Cmd):
         self.shell('adb sync')
 
         return True
-
-    @staticmethod
-    def help():
-        Print.yellow('adb sync')

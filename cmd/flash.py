@@ -11,6 +11,10 @@ class flash(Cmd):
     _INIT_WORK_DIR: bool = True
     _RESTORE_WORK_DIR: bool = True
 
+    _HELP_MESSAGE = (
+        'flash [-p|--path] [partition1] [partition2] ...',
+    )
+
     def on_run(self, *params) -> bool:
         # assign path
         flash_path = self.cfg.cfgProjectOutDir
@@ -52,7 +56,3 @@ class flash(Cmd):
             Print.yellow('No img found to be flashed!!')
 
         return True
-    
-    @staticmethod
-    def help():
-        Print.yellow('flash [-p|--path] [partition1] [partition2] ...')

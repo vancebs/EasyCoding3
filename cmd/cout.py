@@ -11,6 +11,10 @@ class cout(Cmd):
     _INIT_WORK_DIR: bool = False
     _RESTORE_WORK_DIR: bool = False
 
+    _HELP_MESSAGE = (
+        'switch to project out dir',
+    )
+
     def on_run(self, *params) -> bool:
         out_dir = self.cfg.cfgProjectOutDir
         if os.path.exists(out_dir):
@@ -18,7 +22,3 @@ class cout(Cmd):
         else:
             Print.red('out path not exists. path: %s' % out_dir)
             return False
-
-    @staticmethod
-    def help():
-        Print.yellow('switch to project out dir')

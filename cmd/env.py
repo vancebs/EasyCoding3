@@ -10,6 +10,10 @@ class env(Cmd):
     _INIT_WORK_DIR: bool = True
     _RESTORE_WORK_DIR: bool = True
 
+    _HELP_MESSAGE = (
+        'env setup and choosecombo',
+    )
+
     def on_run(self, *params) -> bool:
         target_product = self.cfg.cfgProjectName
         current_product = os.environ.get('ENV_PRODUCT')
@@ -34,7 +38,3 @@ class env(Cmd):
             Print.green('Done => Current Project: [%s]' % target_product)
 
             return True
-
-    @staticmethod
-    def help():
-        Print.yellow('env setup and choosecombo')

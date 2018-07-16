@@ -12,6 +12,16 @@ class gitpush(Cmd):
     _INIT_WORK_DIR: bool = False
     _RESTORE_WORK_DIR: bool = False
 
+    _HELP_MESSAGE = (
+        'push this module to remote repository by git',
+        '',
+        'gitpush [path]',
+        '  path: path under project root',
+        '',
+        'i.e. gitpush',
+        'i.e. gitpush packages/apps/Settings',
+    )
+
     _LINE_PATTERN = re.compile('\s*<project\s*name="([\S]+)"\s*path="([\S]+)"\s*/>\s*')
 
     def on_run(self, *params) -> bool:
@@ -75,11 +85,3 @@ class gitpush(Cmd):
         self.shell('git push %s %s' % (push_url, head))
 
         return True
-
-    @staticmethod
-    def help():
-        Print.yellow('push this module to remote repository by git')
-        Print.yellow('gitpush [path]')
-        Print.yellow('  path: path under project root')
-        Print.yellow('i.e. gitpush')
-        Print.yellow('i.e. gitpush packages/apps/Settings')

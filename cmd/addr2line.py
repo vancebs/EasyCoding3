@@ -9,6 +9,10 @@ class addr2line(Cmd):
     _INIT_WORK_DIR: bool = False
     _RESTORE_WORK_DIR: bool = False
 
+    _HELP_MESSAGE = (
+        'addr2line',
+    )
+
     def on_run(self, *params) -> bool:
         # env
         if not self.env_setup():
@@ -19,6 +23,3 @@ class addr2line(Cmd):
 
         return True
 
-    @staticmethod
-    def help():
-        Print.yellow('addr2line')

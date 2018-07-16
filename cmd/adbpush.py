@@ -11,6 +11,13 @@ class adbpush(Cmd):
     _INIT_WORK_DIR: bool = False
     _RESTORE_WORK_DIR: bool = False
 
+    _HELP_MESSAGE = (
+        'adb push the module to device',
+        '',
+        'adbpush <module>',
+        'i.e. adbpush Settings',
+    )
+
     def on_run(self, *params) -> bool:
         if len(params) < 1:
             Print.red('please input the module to push')
@@ -83,8 +90,3 @@ class adbpush(Cmd):
         else:
             return False
 
-    @staticmethod
-    def help():
-        Print.yellow('adb push the module to device')
-        Print.yellow('adbpush <module>')
-        Print.yellow('i.e. adbpush Settings')

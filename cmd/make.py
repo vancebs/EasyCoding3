@@ -11,6 +11,10 @@ class make(Cmd):
     _INIT_WORK_DIR: bool = True
     _RESTORE_WORK_DIR: bool = True
 
+    _HELP_MESSAGE = (
+        'make AOSP project',
+    )
+
     _MAKE_RESULT_FILE = './make_result'
 
     def on_run(self, *params) -> bool:
@@ -50,7 +54,3 @@ class make(Cmd):
         self.shell('echo "%s: result $?" >> %s' % (datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
                                                    self._MAKE_RESULT_FILE))
         return True
-
-    @staticmethod
-    def help():
-        Print.yellow('make AOSP project')

@@ -13,6 +13,12 @@ class clone(Cmd):
     _INIT_WORK_DIR: bool = True
     _RESTORE_WORK_DIR: bool = True
 
+    _HELP_MESSAGE = (
+        'clone AOSP project by repo',
+        '',
+        'clone [-j4]',
+    )
+
     def on_run(self, *params) -> bool:
         project_dir = self.cfg.cfgProjectRootDir
         date_file = '.date'

@@ -9,6 +9,10 @@ class mm(Cmd):
     _INIT_WORK_DIR: bool = False
     _RESTORE_WORK_DIR: bool = False
 
+    _HELP_MESSAGE = (
+        'AOSP mm',
+    )
+
     def on_run(self, *params) -> bool:
         # setup env
         if self.env_setup():
@@ -18,7 +22,3 @@ class mm(Cmd):
         self.shell('mm %s' % ' '.join(params))
 
         return True
-
-    @staticmethod
-    def help():
-        Print.yellow('AOSP mm')

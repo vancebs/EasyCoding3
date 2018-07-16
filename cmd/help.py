@@ -27,10 +27,12 @@ class help(Cmd):
 
         # get command
         cmd = self.env.load_cmd(params[0])
+        cmd.cfg = self.cfg
         cmd.help()
 
         return True
 
     def help(self):
-        Print.yellow('Command help')
-        Print.yellow('  cmd: %s' % self.cfg.cfgProgramCmdList)
+        Print.yellow('Show help of the command')
+        Print.yellow('')
+        Print.yellow('cmd: %s' % self.cfg.cfgProgramCmdList)

@@ -9,6 +9,10 @@ class dump(Cmd):
     _INIT_WORK_DIR: bool = False
     _RESTORE_WORK_DIR: bool = False
 
+    _HELP_MESSAGE = (
+        'dump configures',
+    )
+
     def on_run(self, *params) -> bool:
         Print.yellow('======> dump begin')
         Print.blue('EC')
@@ -38,7 +42,3 @@ class dump(Cmd):
         Print.yellow('<====== dump end')
 
         return True
-
-    @staticmethod
-    def help():
-        Print.yellow('dump configures')

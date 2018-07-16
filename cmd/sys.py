@@ -9,11 +9,11 @@ class sys(Cmd):
     _INIT_WORK_DIR: bool = False
     _RESTORE_WORK_DIR: bool = False
 
+    _HELP_MESSAGE = (
+        'execute bash command',
+    )
+
     def on_run(self, *params) -> bool:
         self.shell(' '.join(params))
 
         return True
-
-    @staticmethod
-    def help():
-        Print.yellow('execute bash command')

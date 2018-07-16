@@ -11,6 +11,13 @@ class clean(Cmd):
     _INIT_WORK_DIR: bool = False
     _RESTORE_WORK_DIR: bool = False
 
+    _HELP_MESSAGE = (
+        'clean temp file of module',
+        '',
+        'clean <module>',
+        'i.e. clean Settings',
+    )
+
     def on_run(self, *params) -> bool:
         if len(params) < 1:
             Print.red('please input the module to clean')
@@ -60,9 +67,3 @@ class clean(Cmd):
         if os.path.exists(path):
             self.shell('rm -rf %s' % path)
             Print.green('Removed: %s' % path)
-
-    @staticmethod
-    def help():
-        Print.yellow('clean temp file of module')
-        Print.yellow('clean <module>')
-        Print.yellow('i.e. clean Settings')

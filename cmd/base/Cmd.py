@@ -11,6 +11,9 @@ import os
 class Cmd(object):
     _INIT_WORK_DIR: bool = True
     _RESTORE_WORK_DIR: bool = True
+    _HELP_MESSAGE = (
+        'Empty implement!!!',
+    )
 
     _mShell: Shell
     cfg: Config
@@ -66,6 +69,6 @@ class Cmd(object):
     def env_setup(self) -> bool:
         return self.cmd('env')
 
-    @staticmethod
-    def help():
-        Print.yellow('Empty implement!!!')
+    def help(self):
+        for line in self._HELP_MESSAGE:
+            Print.yellow(line)

@@ -10,6 +10,10 @@ class setup(Cmd):
     _INIT_WORK_DIR: bool = False
     _RESTORE_WORK_DIR: bool = False
 
+    _HELP_MESSAGE = (
+        'setup adb & fastboot for this project',
+    )
+
     def on_run(self, *params) -> bool:
         # create link
         result = True
@@ -32,7 +36,3 @@ class setup(Cmd):
         else:
             Print.yellow('target [%s] not exists. ignore it' % target)
             return False
-
-    @staticmethod
-    def help():
-        Print.yellow('setup adb & fastboot for this project')

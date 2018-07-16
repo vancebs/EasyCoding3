@@ -9,11 +9,11 @@ class ubuntu_version(Cmd):
     _INIT_WORK_DIR: bool = False
     _RESTORE_WORK_DIR: bool = False
 
+    _HELP_MESSAGE = (
+        'get version of ubuntu',
+    )
+
     def on_run(self, *params) -> bool:
         self.shell('lsb_release -a')
 
         return True
-
-    @staticmethod
-    def help():
-        Print.yellow('get version of ubuntu')
