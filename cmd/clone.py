@@ -2,6 +2,7 @@
 # coding=utf-8
 
 from cmd.base.Cmd import Cmd
+from script.util.Python2 import Python2
 from script.util.Print import Print
 
 import datetime
@@ -20,6 +21,8 @@ class clone(Cmd):
     )
 
     def on_run(self, *params) -> bool:
+        Print.green('clone ...')
+
         project_dir = self.cfg.cfgProjectRootDir
         date_file = '.date'
         date = datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
@@ -51,9 +54,10 @@ class clone(Cmd):
                                                                         self.cfg.cfgProjectBranch)
 
         # start clone
-        self.shell('eval echo %s | %s' % (repo_input, repo_cmd))
-        self.shell('%s sync %s' % (self.cfg.cfgProjectRepoBin, '-j4' if thread_param is None else thread_param))
-        self.shell('%s start "%s" --all' % (self.cfg.cfgProjectRepoBin, self.cfg.cfgProjectBranch))
+        with Python2(self):
+            self.shell('eval echo %s | %s' % (repo_input, repo_cmd))
+            self.shell('%s sync %s' % (self.cfg.cfgProjectRepoBin, '-j4' if thread_param is None else thread_param))
+            self.shell('%s start "%s" --all' % (self.cfg.cfgProjectRepoBin, self.cfg.cfgProjectBranch))
 
         # move project dir to backup
         old_date = '%s_backup' % date
@@ -71,8 +75,5 @@ class clone(Cmd):
         self.cd(project_dir)
         self.shell('%s/prebuilts/misc/linux-x86/ccache/ccache -M 50G' % project_dir)
 
+        Print.green('done')
         return True
-
-    @staticmethod
-    def help():
-        Print.yellow('clone [-j4]')
