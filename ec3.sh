@@ -7,6 +7,7 @@ SCRIPT_DIR=$(dirname ${SCRIPT_PATH})
 PYTHON_SCRIPT=${SCRIPT_DIR}/ec3.py
 PIPE_IN_PATH=/tmp/$$.in.fifo
 PIPE_OUT_PATH=/tmp/$$.out.fifo
+PIPE_TMP_PATH=/tmp/$$.tmp.fifo
 CTRL_C_DETECTED=FALSE
 
 MIN_PYTHON_VERSION=3.6
@@ -43,18 +44,33 @@ function condaBegin() {
 
     if [[ ${CONDA_ENV_READY} != TRUE ]]; then
         # check whether has ec env
-        local has_env_2=FALSE
-        local has_env_3=FALSE
-        ${CONDA_PATH} env list | while read line; do
-            if [[ ${line} == ${CONDA_ENV_NAME_2}* ]]; then
+        export has_env_2=FALSE
+        export has_env_3=FALSE
+
+        # init pipe tmp
+        mkfifo ${PIPE_TMP_PATH}
+        exec 8<>${PIPE_TMP_PATH}
+        rm ${PIPE_TMP_PATH}
+
+        # check result
+        ${CONDA_PATH} env list >&8
+        echo "==end==" >&8
+        while read line; do
+            if [[ ${line} == "==end==" ]]; then
+                break
+            elif [[ ${line} == ${CONDA_ENV_NAME_2}* ]]; then
                 has_env_2=TRUE
             elif [[ ${line} == ${CONDA_ENV_NAME_3}* ]]; then
                 has_env_3=TRUE
             fi
-        done
+        done <&8
+
+        # close pipe
+        exec 8>&-
 
         # create env if env not exists
         if [[ ${has_env_2} == FALSE ]]; then
+            echo ${has_env_2}
             echo "y" | ${CONDA_PATH} create -n ${CONDA_ENV_NAME_2} python=2.7.15
         fi
         if [[ ${has_env_3} == FALSE ]]; then
@@ -108,7 +124,7 @@ function pythonVersionCheck() {
         print ${COLOR_RED} "Python version [$code] is lower than min request [${MIN_PYTHON_VERSION}]"
         return 1
     else
-        print ${COLOR_GREEN} "Valid python version"
+        print ${COLOR_GREEN} "Valid python version: ${code}"
         return 0
     fi
 }
