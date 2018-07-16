@@ -41,16 +41,16 @@ class make(Cmd):
         return True
 
     def log_begin(self):
-        self.shell('echo "%s: ==== Begin make ====" > %s' % (datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-                                                             self._MAKE_RESULT_FILE))
+        self.shell('eval echo "%s: ==== Begin make ====" > %s' % (datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                                                                  self._MAKE_RESULT_FILE))
         return True
 
     def log_end(self):
-        self.shell('echo "%s: ==== End make ====" >> %s' % (datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-                                                            self._MAKE_RESULT_FILE))
+        self.shell('eval echo "%s: ==== End make ====" >> %s' % (datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                                                                 self._MAKE_RESULT_FILE))
         return True
 
     def log_result(self):
-        self.shell('echo "%s: result $?" >> %s' % (datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-                                                   self._MAKE_RESULT_FILE))
+        self.shell('eval echo "%s: result $?" >> %s' % (datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                                                        self._MAKE_RESULT_FILE))
         return True
