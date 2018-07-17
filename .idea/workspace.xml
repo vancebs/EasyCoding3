@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="85a6aaf2-de71-493c-b196-52427149a114" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/ec3.sh" beforeDir="false" afterPath="$PROJECT_DIR$/ec3.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfg/c2.py" beforeDir="false" afterPath="$PROJECT_DIR$/cfg/c2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfg/pm45.py" beforeDir="false" afterPath="$PROJECT_DIR$/cfg/pm45.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,7 +18,7 @@
       <file leaf-file-name="EasyCoding.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/script/EasyCoding.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
+            <state relative-caret-position="735">
               <caret line="51" column="37" selection-start-line="51" selection-start-column="37" selection-end-line="51" selection-end-column="37" />
               <folding>
                 <element signature="e#34#69#0" expanded="true" />
@@ -28,7 +30,7 @@
       <file leaf-file-name="Env.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/script/Env.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
+            <state relative-caret-position="870">
               <caret line="61" column="18" selection-start-line="61" selection-start-column="15" selection-end-line="61" selection-end-column="18" />
               <folding>
                 <element signature="e#34#43#0" expanded="true" />
@@ -37,11 +39,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ec3.sh" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ec3.sh" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ec3.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="31" column="23" lean-forward="true" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
+            <state relative-caret-position="285">
+              <caret line="37" column="6" selection-start-line="37" selection-start-column="6" selection-end-line="37" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="c2.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cfg/c2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="59" selection-start-line="10" selection-start-column="59" selection-end-line="10" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pm45.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/cfg/pm45.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="59" selection-start-line="10" selection-start-column="59" selection-end-line="10" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -49,8 +69,8 @@
       <file leaf-file-name="make.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cmd/make.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="29" column="19" lean-forward="true" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
+            <state relative-caret-position="390">
+              <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
               <folding>
                 <element signature="e#34#62#0" expanded="true" />
               </folding>
@@ -61,7 +81,7 @@
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
+            <state relative-caret-position="1590">
               <caret line="106" column="6" selection-start-line="106" selection-start-column="6" selection-end-line="106" selection-end-column="6" />
             </state>
           </provider>
@@ -70,8 +90,8 @@
       <file leaf-file-name="gitclone.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cmd/gitclone.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="31" column="33" lean-forward="true" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
+            <state relative-caret-position="405">
+              <caret line="31" column="33" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
               <folding>
                 <element signature="e#34#62#0" expanded="true" />
               </folding>
@@ -82,8 +102,8 @@
       <file leaf-file-name="gitpush.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cmd/gitpush.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="33" column="84" lean-forward="true" selection-start-line="33" selection-start-column="84" selection-end-line="33" selection-end-column="84" />
+            <state relative-caret-position="435">
+              <caret line="33" column="84" selection-start-line="33" selection-start-column="84" selection-end-line="33" selection-end-column="84" />
               <folding>
                 <element signature="e#34#62#0" expanded="true" />
               </folding>
@@ -94,20 +114,11 @@
       <file leaf-file-name="clone.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cmd/clone.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
+            <state relative-caret-position="510">
               <caret line="40" column="58" selection-start-line="40" selection-start-column="58" selection-end-line="40" selection-end-column="58" />
               <folding>
                 <element signature="e#34#62#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Python2.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/script/util/Python2.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="32" lean-forward="true" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -160,7 +171,6 @@
         <option value="$PROJECT_DIR$/script/util/Log.py" />
         <option value="$PROJECT_DIR$/cfgs/base/Config.py" />
         <option value="$PROJECT_DIR$/GlobalConfig.py" />
-        <option value="$PROJECT_DIR$/cfg/pm45.py" />
         <option value="$PROJECT_DIR$/script/ShellLog.py" />
         <option value="$PROJECT_DIR$/cfg/base/Config.py" />
         <option value="$PROJECT_DIR$/ec3.py" />
@@ -199,6 +209,8 @@
         <option value="$PROJECT_DIR$/cmd/clone.py" />
         <option value="$PROJECT_DIR$/cmd/gitclone.py" />
         <option value="$PROJECT_DIR$/ec3.sh" />
+        <option value="$PROJECT_DIR$/cfg/c2.py" />
+        <option value="$PROJECT_DIR$/cfg/pm45.py" />
       </list>
     </option>
   </component>
@@ -340,14 +352,14 @@
     <frame x="64" y="-11" width="1537" height="912" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23148148" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23148148" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32988358" />
       <window_info anchor="bottom" id="Python Console" order="8" weight="0.32729626" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.309185" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.32988358" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.32988358" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39715394" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -381,20 +393,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/cfg/c2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="17" lean-forward="true" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cfg/pm45.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="10" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cfg/viva.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -481,9 +479,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
-          <folding>
-            <element signature="e#34#62#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -491,9 +486,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
-          <folding>
-            <element signature="e#34#62#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -501,9 +493,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="32" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
-          <folding>
-            <element signature="e#34#62#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -511,9 +500,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-          <folding>
-            <element signature="e#34#62#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -521,9 +507,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-          <folding>
-            <element signature="e#34#62#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -531,9 +514,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="91">
           <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-          <folding>
-            <element signature="e#34#62#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -541,9 +521,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
-          <folding>
-            <element signature="e#34#62#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -551,9 +528,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
-          <folding>
-            <element signature="e#34#62#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -561,9 +535,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
-          <folding>
-            <element signature="e#34#62#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -571,9 +542,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="148">
           <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
-          <folding>
-            <element signature="e#34#62#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -581,9 +549,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="106">
           <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-          <folding>
-            <element signature="e#34#62#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -591,9 +556,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
-          <folding>
-            <element signature="e#34#62#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -629,9 +591,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
           <caret line="33" column="29" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
-          <folding>
-            <element signature="e#34#62#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -639,9 +598,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-          <folding>
-            <element signature="e#34#62#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -672,14 +628,14 @@
     <entry file="file://$PROJECT_DIR$/script/util/Python2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
-          <caret line="16" column="32" lean-forward="true" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
+          <caret line="16" column="32" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cmd/make.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="29" column="19" lean-forward="true" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
+        <state relative-caret-position="390">
+          <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
           <folding>
             <element signature="e#34#62#0" expanded="true" />
           </folding>
@@ -688,7 +644,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/script/EasyCoding.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
+        <state relative-caret-position="735">
           <caret line="51" column="37" selection-start-line="51" selection-start-column="37" selection-end-line="51" selection-end-column="37" />
           <folding>
             <element signature="e#34#69#0" expanded="true" />
@@ -698,7 +654,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/script/Env.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
+        <state relative-caret-position="870">
           <caret line="61" column="18" selection-start-line="61" selection-start-column="15" selection-end-line="61" selection-end-column="18" />
           <folding>
             <element signature="e#34#43#0" expanded="true" />
@@ -715,7 +671,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
+        <state relative-caret-position="1590">
           <caret line="106" column="6" selection-start-line="106" selection-start-column="6" selection-end-line="106" selection-end-column="6" />
         </state>
       </provider>
@@ -729,7 +685,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cmd/clone.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
+        <state relative-caret-position="510">
           <caret line="40" column="58" selection-start-line="40" selection-start-column="58" selection-end-line="40" selection-end-column="58" />
           <folding>
             <element signature="e#34#62#0" expanded="true" />
@@ -739,8 +695,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cmd/gitpush.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="33" column="84" lean-forward="true" selection-start-line="33" selection-start-column="84" selection-end-line="33" selection-end-column="84" />
+        <state relative-caret-position="435">
+          <caret line="33" column="84" selection-start-line="33" selection-start-column="84" selection-end-line="33" selection-end-column="84" />
           <folding>
             <element signature="e#34#62#0" expanded="true" />
           </folding>
@@ -749,8 +705,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cmd/gitclone.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="31" column="33" lean-forward="true" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
+        <state relative-caret-position="405">
+          <caret line="31" column="33" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
           <folding>
             <element signature="e#34#62#0" expanded="true" />
           </folding>
@@ -759,8 +715,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ec3.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="31" column="23" lean-forward="true" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
+        <state relative-caret-position="285">
+          <caret line="37" column="6" selection-start-line="37" selection-start-column="6" selection-end-line="37" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfg/c2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="59" selection-start-line="10" selection-start-column="59" selection-end-line="10" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfg/pm45.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="59" selection-start-line="10" selection-start-column="59" selection-end-line="10" selection-end-column="59" />
         </state>
       </provider>
     </entry>
