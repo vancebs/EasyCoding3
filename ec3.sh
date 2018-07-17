@@ -5,7 +5,7 @@ SCRIPT_PATH=$(readlink -f "${BASH_SOURCE[0]}")
 SCRIPT_DIR=$(dirname ${SCRIPT_PATH})
 PYTHON_SCRIPT=${SCRIPT_DIR}/ec3.py
 
-source ./env.sh
+source ${SCRIPT_DIR}/env.sh
 
 function execScript() {
     # begin conda

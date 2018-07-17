@@ -7,7 +7,7 @@ PYTHON_SCRIPT=${SCRIPT_DIR}/Launcher.py
 EC_PATH=${SCRIPT_DIR}/ec3.sh
 
 # load env script
-source ./env.sh
+source ${SCRIPT_DIR}/env.sh
 
 function launch() {
     # begin conda
