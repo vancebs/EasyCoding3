@@ -33,7 +33,7 @@ def launch():
     remote_version = http_get(URL_VERSION).strip()
 
     # check need update
-    need_update = remote_version == local_version
+    need_update = remote_version != local_version
 
     # do update if necessary
     if not need_update:
@@ -51,7 +51,7 @@ def launch():
 def http_get(url: str) -> str:
     request = Request(url=url, headers={'User-Agent': UA_CHROME})
     response = urlopen(request)
-    return response.read()
+    return response.read().decode()
 
 
 def exit_shell():
