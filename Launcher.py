@@ -4,6 +4,8 @@
 
 import time
 import os
+
+from urllib.error import URLError
 from urllib.request import Request
 from urllib.request import urlopen
 from script.util.Print import Print
@@ -71,9 +73,6 @@ def launch():
         exit_shell()
         return
 
-    # save last update time to shell
-    shell_exec('export EC3_LAST_UPDATE_TIME=%s' % curr_update_time)
-
     # start version check
     Print.green('Check version ...')
 
@@ -84,6 +83,13 @@ def launch():
 
     # get remote version
     remote_version = http_get(URL_VERSION).strip()
+    if remote_version is None:
+        Print.yellow('Get remote version failed')
+        exit_shell()
+        return
+
+    # save last update time to shell
+    shell_exec('export EC3_LAST_UPDATE_TIME=%s' % curr_update_time)
 
     # check need update
     need_update = remote_version != local_version
@@ -102,9 +108,12 @@ def launch():
 
 
 def http_get(url: str) -> str:
-    request = Request(url=url, headers={'User-Agent': UA_CHROME})
-    response = urlopen(request, timeout=3)
-    return response.read().decode()
+    try:
+        request = Request(url=url, headers={'User-Agent': UA_CHROME})
+        response = urlopen(request, timeout=5)
+        return response.read().decode()
+    except URLError:
+        return str(None)
 
 
 def exit_shell():
