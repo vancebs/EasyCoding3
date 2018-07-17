@@ -67,6 +67,16 @@ function condaBegin() {
     CONDA_ACTIVATE=${CONDA_DIR}/activate
     CONDA_DEACTIVATE=${CONDA_DIR}/deactivate
 
+    # check conda env by a fast way
+    if [ ! ${CONDA_ENV_READY} ]; then
+        local ENV_PATH_2="${CONDA_DIR}/envs/${CONDA_ENV_NAME_2}"
+        local ENV_PATH_3="${CONDA_DIR}/envs/${CONDA_ENV_NAME_3}"
+        if [ -e ${ENV_PATH_2} -a -e ${ENV_PATH_3} ]; then
+            CONDA_ENV_READY=True
+        fi
+    fi
+
+    # setup conda env
     if [ ! ${CONDA_ENV_READY} ]; then
         # check whether has ec env
         has_env_2=FALSE
