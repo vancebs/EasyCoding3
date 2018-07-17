@@ -33,7 +33,7 @@ function condaBegin() {
     CONDA_PATH=$(which conda)
     if [ $? != 0 ]; then
         print ${COLOR_YELLOW}  "Conda not installed, use default python path: ${PYTHON_BIN}"
-        CONDA_PATH=""
+        unset CONDA_PATH
         return
     fi
 
@@ -88,7 +88,7 @@ function condaBegin() {
 }
 
 function condaEnd() {
-    if [ ${CONDA_PATH} == "" ]; then
+    if [ ! ${CONDA_PATH} ]; then
         # conda not installed
         unset CONDA_PATH
         return

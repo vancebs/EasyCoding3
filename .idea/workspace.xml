@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="85a6aaf2-de71-493c-b196-52427149a114" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/cmd/gitclone.py" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/gitclone.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ec3.sh" beforeDir="false" afterPath="$PROJECT_DIR$/ec3.sh" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -37,11 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ec3.sh" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ec3.sh" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ec3.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="60" column="60" selection-start-line="60" selection-start-column="60" selection-end-line="60" selection-end-column="60" />
+            <state relative-caret-position="195">
+              <caret line="31" column="23" lean-forward="true" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -67,11 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gitclone.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="gitclone.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cmd/gitclone.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="32" column="28" lean-forward="true" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
+            <state relative-caret-position="110">
+              <caret line="31" column="33" lean-forward="true" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
               <folding>
                 <element signature="e#34#62#0" expanded="true" />
               </folding>
@@ -194,11 +194,11 @@
         <option value="$PROJECT_DIR$/cmd/dump.py" />
         <option value="$PROJECT_DIR$/script/EasyCoding.py" />
         <option value="$PROJECT_DIR$/script/util/Python2.py" />
-        <option value="$PROJECT_DIR$/ec3.sh" />
         <option value="$PROJECT_DIR$/cmd/make.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/cmd/clone.py" />
         <option value="$PROJECT_DIR$/cmd/gitclone.py" />
+        <option value="$PROJECT_DIR$/ec3.sh" />
       </list>
     </option>
   </component>
@@ -676,13 +676,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ec3.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="60" column="60" selection-start-line="60" selection-start-column="60" selection-end-line="60" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cmd/make.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -756,11 +749,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cmd/gitclone.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="32" column="28" lean-forward="true" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
+        <state relative-caret-position="110">
+          <caret line="31" column="33" lean-forward="true" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
           <folding>
             <element signature="e#34#62#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ec3.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="31" column="23" lean-forward="true" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
         </state>
       </provider>
     </entry>
