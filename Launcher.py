@@ -1,13 +1,12 @@
 #!/usr/bin/python
 # coding=utf-8
 
-from cmd.base.Cmd import Cmd
-from script.util.Print import Print
 
 import time
 import os
 from urllib.request import Request
 from urllib.request import urlopen
+from script.util.Print import Print
 
 _PREFIX_CMD = 'cmd:'
 _PREFIX_FUNC = 'func:'
@@ -104,7 +103,7 @@ def launch():
 
 def http_get(url: str) -> str:
     request = Request(url=url, headers={'User-Agent': UA_CHROME})
-    response = urlopen(request)
+    response = urlopen(request, timeout=3)
     return response.read().decode()
 
 
