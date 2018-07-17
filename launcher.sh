@@ -12,11 +12,9 @@ source ./env.sh
 function launch() {
     # begin conda
     condaBegin
-
-    # check python version
-    pythonVersionCheck
     if [ $? != 0 ]; then
-        return 1
+        print ${COLOR_RED}  "Conda not installed, please install first."
+        return $?
     fi
 
     # check version an update

@@ -57,9 +57,8 @@ function releasePipeTmp_8() {
 function condaBegin() {
     CONDA_PATH=$(which conda)
     if [ $? != 0 ]; then
-        print ${COLOR_YELLOW}  "Conda not installed, use default python path: ${PYTHON_BIN}"
         unset CONDA_PATH
-        return
+        return 1
     fi
 
     # init path
@@ -112,6 +111,8 @@ function condaBegin() {
         # set conda ready flag
         export CONDA_ENV_READY=TRUE
     fi
+
+    return 0
 }
 
 function condaEnd() {
@@ -166,38 +167,6 @@ function leavePython3() {
 
     # restore conda env
     source ${CONDA_DEACTIVATE}
-}
-
-function pythonVersionCheck() {
-    if [ ${CONDA_PATH} ]; then
-        # conda installed, we can switch version freely.
-        print ${COLOR_GREEN} "Conda installed. Python version can be switched."
-        return 0
-    fi
-
-    # conda not installed. so check python version. if lower than required, script cannot run.
-    local version=$(${PYTHON_BIN} --version 2>&1)
-    local code=0
-
-    # Get version. The last section of version string
-    i=0
-    for v in ${version}; do
-        if [ ${i} == 1 ]; then
-            code=${v}
-            break
-        fi
-        #echo ${code}
-        i=$((i + 1))
-    done
-
-    # check version code
-    if [[ ${code} < ${MIN_PYTHON_VERSION} ]]; then
-        print ${COLOR_RED} "Python version [$code] is lower than min request [${MIN_PYTHON_VERSION}]"
-        return 1
-    else
-        print ${COLOR_GREEN} "Valid python version: ${code}"
-        return 0
-    fi
 }
 
 function load_script() {

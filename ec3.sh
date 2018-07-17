@@ -10,11 +10,9 @@ source ./env.sh
 function execScript() {
     # begin conda
     condaBegin
-
-    # check python version
-    pythonVersionCheck
     if [ $? != 0 ]; then
-        return 1
+        print ${COLOR_RED}  "Conda not installed, please install first."
+        return $?
     fi
 
     # enter python 2 for AOSP make
@@ -27,6 +25,8 @@ function execScript() {
 
     # end conda
     condaEnd
+
+    return 0
 }
 
 
