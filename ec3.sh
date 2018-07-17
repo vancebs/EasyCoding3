@@ -81,9 +81,7 @@ function condaBegin() {
         export CONDA_ENV_READY=TRUE
     fi
 
-
-    # switch conda env
-    source ${CONDA_ACTIVATE} ${CONDA_ENV_NAME_3}
+    # set python bin
     PYTHON_BIN="python"
 }
 
@@ -94,9 +92,6 @@ function condaEnd() {
         return
     fi
 
-    # restore conda env
-    source ${CONDA_DEACTIVATE}
-
     # unset var
     unset CONDA_PATH
     unset CONDA_DIR
@@ -104,7 +99,54 @@ function condaEnd() {
     unset CONDA_DEACTIVATE
 }
 
+function enterPython2() {
+    if [ ! ${CONDA_PATH} ]; then
+        # conda not installed
+        return
+    fi
+
+    # switch conda env to python 2
+    source ${CONDA_ACTIVATE} ${CONDA_ENV_NAME_2}
+}
+
+function leavePython2() {
+    if [ ! ${CONDA_PATH} ]; then
+        # conda not installed
+        return
+    fi
+
+    # restore conda env
+    source ${CONDA_DEACTIVATE}
+}
+
+function enterPython3() {
+    if [ ! ${CONDA_PATH} ]; then
+        # conda not installed
+        return
+    fi
+
+    # switch conda env to python 3
+    source ${CONDA_ACTIVATE} ${CONDA_ENV_NAME_3}
+}
+
+function leavePython3() {
+    if [ ! ${CONDA_PATH} ]; then
+        # conda not installed
+        return
+    fi
+
+    # restore conda env
+    source ${CONDA_DEACTIVATE}
+}
+
 function pythonVersionCheck() {
+    if [ ${CONDA_PATH} ]; then
+        # conda installed, we can switch version freely.
+        print ${COLOR_GREEN} "Conda installed. Python version can be switched."
+        return 0
+    fi
+
+    # conda not installed. so check python version. if lower than required, script cannot run.
     local version=$(${PYTHON_BIN} --version 2>&1)
     local code=0
 
@@ -139,6 +181,9 @@ function execScript() {
         return 1
     fi
 
+    # enter python 2 for AOSP make
+    enterPython2
+
     # init pipe in
     mkfifo ${PIPE_IN_PATH}
     exec 6<>${PIPE_IN_PATH}
@@ -150,7 +195,9 @@ function execScript() {
     rm ${PIPE_OUT_PATH}
 
     # start script
+    enterPython3
     OUT=$(${PYTHON_BIN} ${PYTHON_SCRIPT} $@ >&6 <&7 &)
+    leavePython3
 
     # read and exec
     while [[ TRUE ]]; do
@@ -191,6 +238,9 @@ function execScript() {
     # release pipe
     exec 6>&-
     exec 7>&-
+
+    # leave python 2
+    leavePython2
 
     # end conda
     condaEnd
