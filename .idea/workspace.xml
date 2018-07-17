@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="85a6aaf2-de71-493c-b196-52427149a114" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/cmd/gitclone.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/hufan.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/hufan.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/clone.py" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/clone.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/gitclone.py" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/gitclone.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -73,8 +70,8 @@
       <file leaf-file-name="gitclone.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cmd/gitclone.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="31" column="24" lean-forward="true" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
+            <state relative-caret-position="125">
+              <caret line="32" column="28" lean-forward="true" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
               <folding>
                 <element signature="e#34#62#0" expanded="true" />
               </folding>
@@ -759,8 +756,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cmd/gitclone.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="31" column="24" lean-forward="true" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
+        <state relative-caret-position="125">
+          <caret line="32" column="28" lean-forward="true" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
           <folding>
             <element signature="e#34#62#0" expanded="true" />
           </folding>

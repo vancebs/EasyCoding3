@@ -28,16 +28,27 @@ class gitclone(Cmd):
 
     def on_run(self, *params) -> bool:
         # get parameters
-        local_path: str
-        target_path: str
+        # local_path: str = None
+        # target_path: str = None
         if len(params) == 1:
-            local_path = params[0]
-            target_path = os.path.abspath('%s/%s/%s' % (self.cfg.cfgProjectRootDir, self._DEFAULT_LOCAL_DIR, local_path))
+            local_path = params[0].strip()
+            target_path = os.path.abspath('%s/%s/%s' % (self.cfg.cfgProjectRootDir,
+                                                        self._DEFAULT_LOCAL_DIR, local_path))
         elif len(params) == 2:
-            local_path = params[0]
-            target_path = params[1]
+            local_path = params[0].strip()
+            target_path = params[1].strip()
         else:
             Print.red('Invalid number of parameters. Only 2 is accepted.')
+            self.help()
+            return False
+
+        # check parameter
+        if local_path is None or local_path == '':
+            Print.red('Invalid parameter 1')
+            self.help()
+            return False
+        if target_path is None or target_path == '':
+            Print.red('Invalid parameter 2')
             self.help()
             return False
 
