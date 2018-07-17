@@ -43,9 +43,9 @@ class clone(Cmd):
         self.shell('eval echo "%s" > ./%s' % (date, date_file))  # create .date file
 
         # copy file from old project
-        self.shell('cp - f "%s/.classpath" "%s/.classpath"' % (project_dir, temp_dir))
-        self.shell('cp - f "%s/.project" "%s/.project"' % (project_dir, temp_dir))
-        self.shell('cp - rf "%s/.vscode" "%s/.vscode"' % (project_dir, temp_dir))
+        self.shell('cp -f "%s/.classpath" "%s/.classpath"' % (project_dir, temp_dir))
+        self.shell('cp -f "%s/.project" "%s/.project"' % (project_dir, temp_dir))
+        self.shell('cp -rf "%s/.vscode" "%s/.vscode"' % (project_dir, temp_dir))
 
         # prepare the input text & repo command
         repo_input = '%s\r%s\ry\r' % (self.cfg.cfgGlobalUserName, self.cfg.cfgGlobalUserEmail)
