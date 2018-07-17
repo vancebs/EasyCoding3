@@ -18,9 +18,6 @@ PYTHON_BIN="python"
 
 CTRL_C_DETECTED=FALSE
 
-# load config
-source ./GlobalBashConfig.sh
-
 function print() {
     # $1 color index
     # $2 text
