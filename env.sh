@@ -9,7 +9,10 @@ COLOR_WHITE=37
 CONDA_ENV_NAME_2="EasyCoding3_2"
 CONDA_ENV_NAME_3="EasyCoding3_3"
 
+PIPE_IN_PATH=/tmp/$$.in.fifo
+PIPE_OUT_PATH=/tmp/$$.out.fifo
 PIPE_TMP_PATH=/tmp/$$.tmp.fifo
+
 MIN_PYTHON_VERSION=3.6
 
 # load config
@@ -19,6 +22,36 @@ function print() {
     # $1 color index
     # $2 text
     echo -e "\033[${1}m${2}\033[0m"
+}
+
+function initPipeIn_6() {
+    mkfifo ${PIPE_IN_PATH}
+    exec 6<>${PIPE_IN_PATH}
+    rm ${PIPE_IN_PATH}
+}
+
+function releasePipeIn_6() {
+    exec 6>&-
+}
+
+function initPipeOut_7() {
+    mkfifo ${PIPE_OUT_PATH}
+    exec 7<>${PIPE_OUT_PATH}
+    rm ${PIPE_OUT_PATH}
+}
+
+function releasePipeOut_7() {
+    exec 7>&-
+}
+
+function initPipeTmp_8() {
+    mkfifo ${PIPE_TMP_PATH}
+    exec 8<>${PIPE_TMP_PATH}
+    rm ${PIPE_TMP_PATH}
+}
+
+function releasePipeTmp_8() {
+    exec 8>&-
 }
 
 function condaBegin() {
@@ -40,9 +73,7 @@ function condaBegin() {
         has_env_3=FALSE
 
         # init pipe tmp
-        mkfifo ${PIPE_TMP_PATH}
-        exec 8<>${PIPE_TMP_PATH}
-        rm ${PIPE_TMP_PATH}
+        initPipeTmp_8
 
         # check result
         ${CONDA_PATH} env list >&8
@@ -57,8 +88,8 @@ function condaBegin() {
             fi
         done <&8
 
-        # close pipe
-        exec 8>&-
+        # close pipe tmp
+        releasePipeTmp_8
 
         # create env if env not exists
         if [[ ${has_env_2} == FALSE ]]; then

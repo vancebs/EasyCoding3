@@ -4,8 +4,6 @@
 SCRIPT_PATH=$(readlink -f "${BASH_SOURCE[0]}")
 SCRIPT_DIR=$(dirname ${SCRIPT_PATH})
 PYTHON_SCRIPT=${SCRIPT_DIR}/ec3.py
-PIPE_IN_PATH=/tmp/$$.in.fifo
-PIPE_OUT_PATH=/tmp/$$.out.fifo
 CTRL_C_DETECTED=FALSE
 
 source env.sh
@@ -23,15 +21,9 @@ function execScript() {
     # enter python 2 for AOSP make
     enterPython2
 
-    # init pipe in
-    mkfifo ${PIPE_IN_PATH}
-    exec 6<>${PIPE_IN_PATH}
-    rm ${PIPE_IN_PATH}
-
-    # init pipe out
-    mkfifo ${PIPE_OUT_PATH}
-    exec 7<>${PIPE_OUT_PATH}
-    rm ${PIPE_OUT_PATH}
+    # init pipe
+    initPipeIn_6
+    initPipeOut_7
 
     # start script
     enterPython3
@@ -75,8 +67,8 @@ function execScript() {
     done
 
     # release pipe
-    exec 6>&-
-    exec 7>&-
+    releasePipeIn_6
+    releasePipeOut_7
 
     # leave python 2
     leavePython2
