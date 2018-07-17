@@ -38,7 +38,7 @@ class clone(Cmd):
                 params.remove(p)
 
         # prepare temp dir under backup dir
-        os.makedirs(temp_dir, exist_ok=True)  # create dir
+        self.shell('mkdir -p %s' % temp_dir)
         self.cd(temp_dir)  # switch to temp dir
         self.shell('eval echo "%s" > ./%s' % (date, date_file))  # create .date file
 
@@ -66,10 +66,10 @@ class clone(Cmd):
             with open(old_date_path) as date_file:
                 old_date = date_file.readline().strip()
         backup_dir = '%s/%s' % (self.cfg.cfgProjectBackupDir, old_date)
-        self.shell('mv -f "%s" "%s"' % (project_dir, backup_dir))
+        self.shell('eval mv -f "%s" "%s"' % (project_dir, backup_dir))
 
         # move temp dir to project dir
-        self.shell('mv -f "%s" "%s"' % (temp_dir, project_dir))
+        self.shell('eval mv -f "%s" "%s"' % (temp_dir, project_dir))
 
         # apply ccache
         self.cd(project_dir)
