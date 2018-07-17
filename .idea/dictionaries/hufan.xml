@@ -32,6 +32,7 @@
       <w>quicl</w>
       <w>setenforce</w>
       <w>setprop</w>
+      <w>showbackup</w>
       <w>stdin</w>
       <w>sudo</w>
       <w>unroot</w>
