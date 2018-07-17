@@ -6,7 +6,6 @@ SCRIPT_DIR=$(dirname ${SCRIPT_PATH})
 PYTHON_SCRIPT=${SCRIPT_DIR}/ec3.py
 
 source ./env.sh
-source ./script_loader.sh
 
 function execScript() {
     # begin conda
@@ -21,7 +20,7 @@ function execScript() {
     # enter python 2 for AOSP make
     enterPython2
 
-    load_script "${PYTHON_BIN}" "${PYTHON_SCRIPT}" $@
+    load_script "${PYTHON_SCRIPT}" $@
 
     # leave python 2
     leavePython2

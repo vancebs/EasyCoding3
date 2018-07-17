@@ -8,7 +8,6 @@ EC_PATH=${SCRIPT_DIR}/ec3.sh
 
 # load env script
 source ./env.sh
-source ./script_loader.sh
 
 function launch() {
     # begin conda
@@ -21,7 +20,7 @@ function launch() {
     fi
 
     # check version an update
-    load_script "${PYTHON_BIN}" "${PYTHON_SCRIPT}"
+    load_script "${PYTHON_SCRIPT}"
 
     # run ec
     source ${EC_PATH} $@
