@@ -9,9 +9,10 @@ COLOR_WHITE=37
 CONDA_ENV_NAME_2="EasyCoding3_2"
 CONDA_ENV_NAME_3="EasyCoding3_3"
 
-PIPE_IN_PATH=/tmp/$$.in.fifo
-PIPE_OUT_PATH=/tmp/$$.out.fifo
-PIPE_TMP_PATH=/tmp/$$.tmp.fifo
+PIPE_IN_PATH=/tmp/$$.in.6.fifo
+PIPE_OUT_PATH=/tmp/$$.out.7.fifo
+PIPE_TMP_8_PATH=/tmp/$$.tmp.8.fifo
+PIPE_TMP_9_PATH=/tmp/$$.tmp.9.fifo
 
 MIN_PYTHON_VERSION=3.6
 PYTHON_BIN="python"
@@ -45,13 +46,23 @@ function releasePipeOut_7() {
 }
 
 function initPipeTmp_8() {
-    mkfifo ${PIPE_TMP_PATH}
-    exec 8<>${PIPE_TMP_PATH}
-    rm ${PIPE_TMP_PATH}
+    mkfifo ${PIPE_TMP_8_PATH}
+    exec 8<>${PIPE_TMP_8_PATH}
+    rm ${PIPE_TMP_8_PATH}
 }
 
 function releasePipeTmp_8() {
     exec 8>&-
+}
+
+function initPipeTmp_9() {
+    mkfifo ${PIPE_TMP_9_PATH}
+    exec 9<>${PIPE_TMP_9_PATH}
+    rm ${PIPE_TMP_9_PATH}
+}
+
+function releasePipeTmp_9() {
+    exec 9>&-
 }
 
 function condaBegin() {
@@ -183,7 +194,7 @@ function load_script() {
 
     # start script
     enterPython3
-    OUT=$(${PYTHON_BIN} ${PYTHON_SCRIPT} $@ >&6 <&7 &)
+    (${PYTHON_BIN} ${PYTHON_SCRIPT} $@ >&6 <&7 &)
     leavePython3
 
     # read and exec

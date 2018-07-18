@@ -66,3 +66,36 @@ class Shell(object):
 
         # get result
         return '\n'.join(output).strip()
+
+    @staticmethod
+    def shell_exec(cmd: str) -> int:
+        # send command
+        print('%s%s' % (Shell._PREFIX_CMD, cmd))
+
+        # receive exit code
+        line = input()
+
+        # get exit code
+        try:
+            return int(line)
+        except ValueError:
+            return 10086  # unknown error
+
+    @staticmethod
+    def shell_func(cmd: str) -> str:
+        # send command
+        print('%s%s' % (Shell._PREFIX_FUNC, cmd))
+
+        # receive output
+        output = []
+        line = input().strip()
+        while not line == '==end==':
+            output.append(line)
+            line = input().strip()
+
+        # get result
+        return '\n'.join(output).strip()
+
+    @staticmethod
+    def shell_exit():
+        print('==end==')
