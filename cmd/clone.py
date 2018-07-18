@@ -57,7 +57,7 @@ class clone(Cmd):
         with Python2(self):
             self.shell('eval echo %s | %s' % (repo_input, repo_cmd))
             self.shell('%s sync %s' % (self.cfg.cfgProjectRepoBin, '-j4' if thread_param is None else thread_param))
-            self.shell('%s start "%s" --all' % (self.cfg.cfgProjectRepoBin, self.cfg.cfgProjectBranch))
+            self.shell('%s start %s --all' % (self.cfg.cfgProjectRepoBin, self.cfg.cfgProjectBranch))
 
         # move project dir to backup
         old_date = '%s_backup' % date
