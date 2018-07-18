@@ -20,7 +20,7 @@ function launch() {
         return $?
     fi
 
-    # get last update check result
+    # show last update message
     if [ -e ${CHECK_PATH} ]; then
         (
             l=$(line)  # drop first line
@@ -31,7 +31,7 @@ function launch() {
         ) < ${CHECK_PATH}
     fi
 
-    # check update result
+    # do update if necessary
     if [ -e ${UPDATE_PATH} ]; then
         git pull
 
