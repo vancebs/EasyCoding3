@@ -97,13 +97,13 @@ def set_has_update(version: str):
         file.write('%s\n' % version)
 
 
-def http_get(url: str) -> str:
+def http_get(url: str) -> (None, str):
     try:
         request = Request(url=url, headers={'User-Agent': UA_CHROME})
         response = urlopen(request, timeout=5)
         return response.read().decode()
     except URLError:
-        return str(None)
+        return None
 
 
 if __name__ == "__main__":
