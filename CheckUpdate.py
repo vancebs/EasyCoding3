@@ -52,7 +52,7 @@ def launch():
     set_last_check(curr_time, 'Checking version...')
 
     # get local version
-    local_version: str = get_last_version()
+    local_version = get_last_version()
 
     # get remote version
     remote_version = http_get(URL_VERSION).strip()

@@ -41,7 +41,13 @@ function launch() {
     fi
 
     # run check update
-    (${PYTHON_BIN} ${CHECK_UPDATE_SCRIPT} &)
+    (
+        (
+            enterPython3
+            ${PYTHON_BIN} ${CHECK_UPDATE_SCRIPT}
+            leavePython3
+        ) &
+    )
 
     # run ec
     source ${EC_PATH} $@
