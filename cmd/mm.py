@@ -15,7 +15,7 @@ class mm(Cmd):
 
     def on_run(self, *params) -> bool:
         # setup env
-        if self.env_setup():
+        if not self.env_setup():
             return False
 
         # mm
