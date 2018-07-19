@@ -33,7 +33,10 @@ function launch() {
 
     # do update if necessary
     if [ -e ${UPDATE_PATH} ]; then
+        _PWD=${PWD}
+        cd ${SCRIPT_DIR}  # switch to EC root dir
         git pull
+        cd ${_PWD}  # restore pwd
 
         # remote update check info
         rm -f ${CHECK_PATH}
