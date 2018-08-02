@@ -2,7 +2,7 @@
 # coding=utf-8
 
 from cmd.base.Cmd import Cmd
-from script.util.Print import Print
+from script.util.Printer import Printer
 
 import os
 
@@ -20,12 +20,12 @@ class adbpush(Cmd):
 
     def on_run(self, *params) -> bool:
         if len(params) < 1:
-            Print.red('please input the module to push')
+            Printer.red_line('please input the module to push')
             help()
             return False
 
         if len(params) > 1:
-            Print.red('only one module is supported')
+            Printer.red_line('only one module is supported')
             help()
             return False
 
@@ -82,10 +82,10 @@ class adbpush(Cmd):
 
     def adb_push(self, msg, src, dst):
         if os.path.exists(src):
-            Print.green('Pushing %s ...' % msg)
+            Printer.green_line('Pushing %s ...' % msg)
             self.shell('adb shell mkdir -p %s' % dst)
             self.shell('adb push %s %s' % (src, dst))
-            Print.green('Done')
+            Printer.green_line('Done')
             return True
         else:
             return False

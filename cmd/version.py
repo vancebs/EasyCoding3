@@ -2,7 +2,7 @@
 # coding=utf-8
 
 from cmd.base.Cmd import Cmd
-from script.util.Print import Print
+from script.util.Printer import Printer
 from urllib.error import URLError
 from urllib.request import Request
 from urllib.request import urlopen
@@ -27,10 +27,10 @@ class version(Cmd):
     def on_run(self, *params) -> bool:
         with open('%s/VERSION' % self.cfg.cfgProgramDir, 'r') as file:
             local_version = file.readline().strip()
-        Print.green('Local Version: %s' % local_version)
+        Printer.green_line('Local Version: %s' % local_version)
 
         remote_version = version.http_get(version._URL_VERSION).strip()
-        Print.green('Remote Version: %s' % remote_version)
+        Printer.green_line('Remote Version: %s' % remote_version)
 
         return True
 

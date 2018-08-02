@@ -3,7 +3,7 @@
 
 from cmd.base.Cmd import Cmd
 from script.util.Python2 import Python2
-from script.util.Print import Print
+from script.util.Printer import Printer
 
 import datetime
 import os
@@ -21,7 +21,7 @@ class clone(Cmd):
     )
 
     def on_run(self, *params) -> bool:
-        Print.green('clone ...')
+        Printer.green_line('clone ...')
 
         project_dir = self.cfg.cfgProjectRootDir
         date_file = '.date'
@@ -75,5 +75,5 @@ class clone(Cmd):
         self.cd(project_dir)
         self.shell('%s/prebuilts/misc/linux-x86/ccache/ccache -M 50G' % project_dir)
 
-        Print.green('done')
+        Printer.green_line('done')
         return True

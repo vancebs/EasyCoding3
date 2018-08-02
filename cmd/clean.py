@@ -2,7 +2,7 @@
 # coding=utf-8
 
 from cmd.base.Cmd import Cmd
-from script.util.Print import Print
+from script.util.Printer import Printer
 
 import os
 
@@ -20,12 +20,12 @@ class clean(Cmd):
 
     def on_run(self, *params) -> bool:
         if len(params) < 1:
-            Print.red('please input the module to clean')
+            Printer.red_line('please input the module to clean')
             help()
             return False
 
         if len(params) > 1:
-            Print.red('only one module is supported')
+            Printer.red_line('only one module is supported')
             help()
             return False
 
@@ -66,4 +66,4 @@ class clean(Cmd):
     def remove(self, path: str):
         if os.path.exists(path):
             self.shell('rm -rf %s' % path)
-            Print.green('Removed: %s' % path)
+            Printer.green_line('Removed: %s' % path)

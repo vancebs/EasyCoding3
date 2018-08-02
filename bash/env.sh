@@ -1,69 +1,15 @@
 #! /bin/bash
 
-COLOR_RED=31
-COLOR_GREEN=32
-COLOR_YELLOW=33
-COLOR_BLUE=34
-COLOR_WHITE=37
+if [ -z ${_ENV_SH_} ]; then
+export _ENV_SH_=1
+
+source ${BASH_DIR}/util.sh
 
 CONDA_ENV_NAME_2="EasyCoding3_2"
 CONDA_ENV_NAME_3="EasyCoding3_3"
 
-PIPE_IN_PATH=/tmp/$$.in.6.fifo
-PIPE_OUT_PATH=/tmp/$$.out.7.fifo
-PIPE_TMP_8_PATH=/tmp/$$.tmp.8.fifo
-PIPE_TMP_9_PATH=/tmp/$$.tmp.9.fifo
-
 MIN_PYTHON_VERSION=3.6
-PYTHON_BIN="python"
-
-CTRL_C_DETECTED=FALSE
-
-function print() {
-    # $1 color index
-    # $2 text
-    echo -e "\033[${1}m${2}\033[0m"
-}
-
-function initPipeIn_6() {
-    mkfifo ${PIPE_IN_PATH}
-    exec 6<>${PIPE_IN_PATH}
-    rm ${PIPE_IN_PATH}
-}
-
-function releasePipeIn_6() {
-    exec 6>&-
-}
-
-function initPipeOut_7() {
-    mkfifo ${PIPE_OUT_PATH}
-    exec 7<>${PIPE_OUT_PATH}
-    rm ${PIPE_OUT_PATH}
-}
-
-function releasePipeOut_7() {
-    exec 7>&-
-}
-
-function initPipeTmp_8() {
-    mkfifo ${PIPE_TMP_8_PATH}
-    exec 8<>${PIPE_TMP_8_PATH}
-    rm ${PIPE_TMP_8_PATH}
-}
-
-function releasePipeTmp_8() {
-    exec 8>&-
-}
-
-function initPipeTmp_9() {
-    mkfifo ${PIPE_TMP_9_PATH}
-    exec 9<>${PIPE_TMP_9_PATH}
-    rm ${PIPE_TMP_9_PATH}
-}
-
-function releasePipeTmp_9() {
-    exec 9>&-
-}
+export PYTHON_BIN="python"
 
 function condaBegin() {
     CONDA_PATH=$(which conda)
@@ -82,6 +28,7 @@ function condaBegin() {
     if [ -z ${CONDA_ENV_READY} ]; then
         local ENV_PATH_2="${CONDA_ENV_DIR}/${CONDA_ENV_NAME_2}"
         local ENV_PATH_3="${CONDA_ENV_DIR}/${CONDA_ENV_NAME_3}"
+
         if [ -e ${ENV_PATH_2} -a -e ${ENV_PATH_3} ]; then
             CONDA_ENV_READY=TRUE
         fi
@@ -181,66 +128,4 @@ function leavePython3() {
     source ${CONDA_DEACTIVATE}
 }
 
-function load_script() {
-    #############################
-    # $1: PYTHON_SCRIPT
-    # $2-n: parameters
-    #############################
-    PYTHON_SCRIPT=$1
-    shift
-
-    # init pipe
-    initPipeIn_6
-    initPipeOut_7
-
-    # start script
-    enterPython3
-    (${PYTHON_BIN} ${PYTHON_SCRIPT} $@ >&6 <&7 &)
-    leavePython3
-
-    # read and exec
-    while [[ TRUE ]]; do
-        # read command from python script
-        read -u6 line
-
-        # check command end
-        if [[ ${line} == "==end==" ]]; then
-            break
-        fi
-
-        # check Ctrl+C
-        if [[ ${CTRL_C_DETECTED} == TRUE ]]; then
-            print ${COLOR_GREEN} "=====> cancel by [Ctrl+C]"
-            break
-        fi
-
-        # run command
-        if [[ ${line} == "cmd:"* ]]; then
-            # run command
-            ${line#cmd:}
-
-            # feedback exit code
-            echo "$?" >&7
-        elif [[ ${line} == "func:"* ]]; then
-            # run command & get output
-            result=$(${line#func:})
-
-            # feedback output
-            echo ${result} >&7
-            echo "==end==" >&7
-        else
-            # echo message
-            echo "${line}"
-        fi
-    done
-
-    # release pipe
-    releasePipeIn_6
-    releasePipeOut_7
-}
-
-function onCtrlC () {
-    CTRL_C_DETECTED=TRUE
-}
-
-trap "onCtrlC" INT
+fi  # _ENV_SH_

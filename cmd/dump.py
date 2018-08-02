@@ -2,7 +2,7 @@
 # coding=utf-8
 
 from cmd.base.Cmd import Cmd
-from script.util.Print import Print
+from script.util.Printer import Printer
 
 
 class dump(Cmd):
@@ -14,31 +14,31 @@ class dump(Cmd):
     )
 
     def on_run(self, *params) -> bool:
-        Print.yellow('======> dump begin')
-        Print.blue('EC')
-        Print.green('  Dir: %s' % self.cfg.cfgProgramDir)
-        Print.green('  cmd dir: %s' % self.cfg.cfgProgramCmdDir)
-        Print.green('  cmd list: %s' % self.cfg.cfgProgramCmdList)
-        Print.green('  cfg dir: %s' % self.cfg.cfgProgramCfgDir)
-        Print.green('  cfg list: %s' % self.cfg.cfgProgramCfgList)
-        Print.green('  cfg file: %s' % self.cfg.cfgProgramCfgFile)
-        Print.blue('Global')
-        Print.green('  base dir: %s' % self.cfg.cfgGlobalBaseDir)
-        Print.green('  pull url: %s' % self.cfg.cfgGlobalUrlRepoPull)
-        Print.green('  push url: %s' % self.cfg.cfgGlobalUrlRepoPush)
-        Print.green('  user name: %s' % self.cfg.cfgGlobalUserName)
-        Print.green('  user email: %s' % self.cfg.cfgGlobalUserEmail)
-        Print.blue('Project')
-        Print.green('  name: %s' % self.cfg.cfgProjectName)
-        Print.green('  branch: %s' % self.cfg.cfgProjectBranch)
-        Print.green('  root dir: %s' % self.cfg.cfgProjectRootDir)
-        Print.green('  out dir: %s' % self.cfg.cfgProjectOutDir)
-        Print.green('  env setup: %s' % self.cfg.cfgProjectEnvSetup)
-        Print.green('  env config: %s' % self.cfg.cfgProjectEnvConfig)
-        Print.green('  flash map: %s' % self.cfg.cfgProjectFlashMap)
-        Print.green('  pull url: %s' % self.cfg.cfgProjectUrlRepoPull)
-        Print.green('  push url: %s' % self.cfg.cfgProjectUrlRepoPush)
-        Print.green('  repo bin: %s' % self.cfg.cfgProjectRepoBin)
-        Print.yellow('<====== dump end')
+        Printer.yellow_line('======> dump begin')
+        Printer.blue_line('EC')
+        Printer.green_line('  Dir: %s' % self.cfg.cfgProgramDir)
+        Printer.green_line('  cmd dir: %s' % self.cfg.cfgProgramCmdDir)
+        Printer.green_line('  cmd list: %s' % self.cfg.cfgProgramCmdList)
+        Printer.green_line('  cfg dir: %s' % self.cfg.cfgProgramCfgDir)
+        Printer.green_line('  cfg list: %s' % self.cfg.cfgProgramCfgList)
+        Printer.green_line('  cfg file: %s' % self.cfg.cfgProgramCfgFile)
+        Printer.blue_line('Global')
+        Printer.green_line('  base dir: %s' % self.cfg.cfgGlobalBaseDir)
+        Printer.green_line('  pull url: %s' % self.cfg.cfgGlobalUrlRepoPull)
+        Printer.green_line('  push url: %s' % self.cfg.cfgGlobalUrlRepoPush)
+        Printer.green_line('  user name: %s' % self.cfg.cfgGlobalUserName)
+        Printer.green_line('  user email: %s' % self.cfg.cfgGlobalUserEmail)
+        Printer.blue_line('Project')
+        Printer.green_line('  name: %s' % self.cfg.cfgProjectName)
+        Printer.green_line('  branch: %s' % self.cfg.cfgProjectBranch)
+        Printer.green_line('  root dir: %s' % self.cfg.cfgProjectRootDir)
+        Printer.green_line('  out dir: %s' % self.cfg.cfgProjectOutDir)
+        Printer.green_line('  env setup: %s' % self.cfg.cfgProjectEnvSetup)
+        Printer.green_line('  env config: %s' % self.cfg.cfgProjectEnvConfig)
+        Printer.green_line('  flash map: %s' % self.cfg.cfgProjectFlashMap)
+        Printer.green_line('  pull url: %s' % self.cfg.cfgProjectUrlRepoPull)
+        Printer.green_line('  push url: %s' % self.cfg.cfgProjectUrlRepoPush)
+        Printer.green_line('  repo bin: %s' % self.cfg.cfgProjectRepoBin)
+        Printer.yellow_line('<====== dump end')
 
         return True

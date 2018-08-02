@@ -2,7 +2,7 @@
 # coding=utf-8
 
 from cmd.base.Cmd import Cmd
-from script.util.Print import Print
+from script.util.Printer import Printer
 
 import os
 
@@ -20,10 +20,10 @@ class flash(Cmd):
         flash_path = self.cfg.cfgProjectOutDir
         if len(params) > 0 and (params[0] == '--path' or params[0] == '-p'):
             if len(params) < 2:
-                Print.red('invalid format of command')
+                Printer.red_line('invalid format of command')
                 self.help()
                 return False
-            flash_path = params[1]
+            flash_path = os.path.abspath(params[1])
             params = params[2:]
         
         # get flash list
@@ -34,7 +34,7 @@ class flash(Cmd):
                 if p in flash_dict:
                     tmp_dict[p] = flash_dict[p]
                 else:
-                    Print.red('unknown partition: %s' % p)
+                    Printer.red_line('unknown partition: %s' % p)
                     self.help()
                     return False
             flash_dict = tmp_dict
@@ -46,13 +46,13 @@ class flash(Cmd):
             path = '%s/%s' % (flash_path, img)
             if os.path.exists(path):
                 flashed = True
-                Print.green('flashing [%s] ...' % img)
+                Printer.green_line('flashing [%s] ...' % img)
                 self.shell('sudo fastboot flash %s %s' % (partition, path))
-                Print.green('Done')
+                Printer.green_line('Done')
         self.shell('sudo fastboot reboot')
 
         # warning for not flash
         if not flashed:
-            Print.yellow('No img found to be flashed!!')
+            Printer.yellow_line('No img found to be flashed!!')
 
         return True

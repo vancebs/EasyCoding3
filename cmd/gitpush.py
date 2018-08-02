@@ -2,7 +2,7 @@
 # coding=utf-8
 
 from cmd.base.Cmd import Cmd
-from script.util.Print import Print
+from script.util.Printer import Printer
 
 import os
 import re
@@ -33,16 +33,16 @@ class gitpush(Cmd):
         if len(params) == 1:
             pwd = os.path.abspath('%s/%s' % (self.cfg.cfgProjectRootDir, params[0]))
             if not os.path.exists(pwd):
-                Print.red('Path to push not exists')
-                Print.red('  Path: %s' % pwd)
+                Printer.red_line('Path to push not exists')
+                Printer.red_line('  Path: %s' % pwd)
                 self.help()
                 return False
 
         # check pwd
         if not pwd.startswith(project_root_dir):
-            Print.red('Current path is not valid. Please enter the dir of repository to push')
-            Print.red('  Current path: %s' % pwd)
-            Print.red('  Project path: %s' % project_root)
+            Printer.red_line('Current path is not valid. Please enter the dir of repository to push')
+            Printer.red_line('  Current path: %s' % pwd)
+            Printer.red_line('  Project path: %s' % project_root)
             self.help()
             return False
 
@@ -52,8 +52,8 @@ class gitpush(Cmd):
         # check manifest
         manifest = '%s/.repo/manifest.xml' % project_root
         if not os.path.exists(manifest):
-            Print.red('manifest not exists.')
-            Print.red('  Path: %s' % manifest)
+            Printer.red_line('manifest not exists.')
+            Printer.red_line('  Path: %s' % manifest)
             self.help()
             return False
 
@@ -74,8 +74,8 @@ class gitpush(Cmd):
 
         # check remote path
         if remote_path is None:
-            Print.red('Path not find in manifest.')
-            Print.red('  Path: %s' % local_path)
+            Printer.red_line('Path not find in manifest.')
+            Printer.red_line('  Path: %s' % local_path)
             self.help()
             return False
 

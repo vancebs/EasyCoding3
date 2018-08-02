@@ -2,7 +2,7 @@
 # coding=utf-8
 
 from cmd.base.Cmd import Cmd
-from script.util.Print import Print
+from script.util.Printer import Printer
 
 
 class unroot(Cmd):
@@ -25,6 +25,6 @@ class unroot(Cmd):
         self.shell('unset result')
         self.shell('unset pid')
 
-        Print.green('Unrooted')
+        Printer.green_line('Unrooted')
 
         return True

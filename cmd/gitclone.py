@@ -2,7 +2,7 @@
 # coding=utf-8
 
 from cmd.base.Cmd import Cmd
-from script.util.Print import Print
+from script.util.Printer import Printer
 
 import re
 import os
@@ -38,25 +38,25 @@ class gitclone(Cmd):
             local_path = params[0].strip()
             target_path = params[1].strip()
         else:
-            Print.red('Invalid number of parameters. Only 2 is accepted.')
+            Printer.red_line('Invalid number of parameters. Only 2 is accepted.')
             self.help()
             return False
 
         # check parameter
         if local_path is None or local_path == '':
-            Print.red('Invalid parameter 1')
+            Printer.red_line('Invalid parameter 1')
             self.help()
             return False
         if target_path is None or target_path == '':
-            Print.red('Invalid parameter 2')
+            Printer.red_line('Invalid parameter 2')
             self.help()
             return False
 
         # check manifest
         manifest = '%s/.repo/manifest.xml' % self.cfg.cfgProjectRootDir
         if not os.path.exists(manifest):
-            Print.red('manifest not exists.')
-            Print.red('  Path: %s' % manifest)
+            Printer.red_line('manifest not exists.')
+            Printer.red_line('  Path: %s' % manifest)
             self.help()
             return False
 
@@ -77,8 +77,8 @@ class gitclone(Cmd):
 
         # check remote path
         if remote_path is None:
-            Print.red('Path not find in manifest.')
-            Print.red('  Path: %s' % local_path)
+            Printer.red_line('Path not find in manifest.')
+            Printer.red_line('  Path: %s' % local_path)
             self.help()
             return False
 

@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # coding=utf-8
 
-from script.util.Print import Print
+from script.util.Printer import Printer
 from cfg.base.Config import Config
 from script.Shell import Shell
 
@@ -39,7 +39,7 @@ class Cmd(object):
         return success
 
     def on_run(self, *params) -> bool:  # True: success, False: failed
-        Print.yellow('empty implement of run()# params: %s' % params)
+        Printer.yellow_line('empty implement of run()# params: %s' % params)
         return True
 
     def shell(self, cmd: str) -> int:
@@ -74,4 +74,4 @@ class Cmd(object):
 
     def help(self):
         for line in self._HELP_MESSAGE:
-            Print.yellow(line)
+            Printer.yellow_line(line)

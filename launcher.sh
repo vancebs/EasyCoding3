@@ -1,16 +1,18 @@
 #! /bin/bash
 
-SCRIPT_PATH=$(readlink -f "${BASH_SOURCE[0]}")
-SCRIPT_DIR=$(dirname ${SCRIPT_PATH})
+export EC_PATH=$(readlink -f ${BASH_SOURCE[0]})
+export EC_DIR=$(dirname ${EC_PATH})
+export BASH_DIR=${EC_DIR}/bash
+export PYTHON_DIR=${EC_DIR}/script
 
-PYTHON_SCRIPT=${SCRIPT_DIR}/Launcher.py
-CHECK_UPDATE_SCRIPT=${SCRIPT_DIR}/CheckUpdate.py
-EC_PATH=${SCRIPT_DIR}/ec3.sh
-CHECK_PATH=${SCRIPT_DIR}/.check
-UPDATE_PATH=${SCRIPT_DIR}/.update
+PYTHON_SCRIPT=${EC_DIR}/Launcher.py
+CHECK_UPDATE_SCRIPT=${EC_DIR}/script/CheckUpdate.py
+EC_PATH=${EC_DIR}/ec3.sh
+CHECK_PATH=${EC_DIR}/.check
+UPDATE_PATH=${EC_DIR}/.update
 
 # load env script
-source ${SCRIPT_DIR}/env.sh
+source ${BASH_DIR}/env.sh
 
 function launch() {
     # begin conda
@@ -34,13 +36,17 @@ function launch() {
     # do update if necessary
     if [ -e ${UPDATE_PATH} ]; then
         _PWD=${PWD}
-        cd ${SCRIPT_DIR}  # switch to EC root dir
+        cd ${EC_DIR}  # switch to EC root dir
         git pull
         cd ${_PWD}  # restore pwd
 
         # remote update check info
         rm -f ${CHECK_PATH}
         rm -f ${UPDATE_PATH}
+
+        # unset VAR to make bash script reloaded
+        unset _ENV_SH_
+        unset _UTIL_SH_
     fi
 
     # run check update

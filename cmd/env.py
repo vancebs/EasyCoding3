@@ -2,7 +2,7 @@
 # coding=utf-8
 
 from cmd.base.Cmd import Cmd
-from script.util.Print import Print
+from script.util.Printer import Printer
 import os
 
 
@@ -18,14 +18,14 @@ class env(Cmd):
         target_product = self.cfg.cfgProjectName
         current_product = os.environ.get('ENV_PRODUCT')
         if current_product == target_product:
-            Print.yellow('Already initialized for %s!!!' % current_product)
+            Printer.yellow_line('Already initialized for %s!!!' % current_product)
             return True
         elif current_product is not None and current_product != '':
-            Print.red('Already initialized for [%s]. Please start a new terminal.' % current_product)
+            Printer.red_line('Already initialized for [%s]. Please start a new terminal.' % current_product)
             return False
         else:
             # notify start
-            Print.green('Initializing for [%s] ...' % target_product)
+            Printer.green_line('Initializing for [%s] ...' % target_product)
 
             # begin env setup
             self.shell('source %s' % self.cfg.cfgProjectEnvSetup)
@@ -35,6 +35,6 @@ class env(Cmd):
             self.shell('export ENV_PRODUCT=%s' % target_product)
 
             # notify done
-            Print.green('Done => Current Project: [%s]' % target_product)
+            Printer.green_line('Done => Current Project: [%s]' % target_product)
 
             return True

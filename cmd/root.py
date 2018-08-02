@@ -2,7 +2,7 @@
 # coding=utf-8
 
 from cmd.base.Cmd import Cmd
-from script.util.Print import Print
+from script.util.Printer import Printer
 
 
 class root(Cmd):
@@ -25,6 +25,6 @@ class root(Cmd):
         self.shell('adb remount')
         self.shell('adb disable-verity')
 
-        Print.green('Rooted')
+        Printer.green_line('Rooted')
 
         return True

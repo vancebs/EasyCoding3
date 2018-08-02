@@ -2,18 +2,17 @@
 # coding=utf-8
 
 
-import time
 import os
 
 from urllib.error import URLError
 from urllib.request import Request
 from urllib.request import urlopen
-from script.util.Print import Print
 
 
 UPDATE_DURATION = 3600
 
 SCRIPT_DIR = os.path.abspath(os.path.dirname(__file__))
+EC_DIR = os.path.abspath('%s/..' % SCRIPT_DIR)
 
 # User Agent
 UA_CHROME = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0)' \
@@ -24,17 +23,17 @@ UA_CHROME = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0)' \
 URL_VERSION = 'https://raw.githubusercontent.com/vancebs/EasyCoding3/master/VERSION'
 
 # VERSION_FILE
-LOCAL_VERSION = '%s/VERSION' % SCRIPT_DIR
+LOCAL_VERSION = '%s/VERSION' % EC_DIR
 
 # Config file
-LAST_CHECK_FILE = '%s/.check' % SCRIPT_DIR
-HAS_UPDATE_FILE = '%s/.update' % SCRIPT_DIR
+LAST_CHECK_FILE = '%s/.check' % EC_DIR
+HAS_UPDATE_FILE = '%s/.update' % EC_DIR
 
 
 def launch():
     # check has update file
     if os.path.exists(HAS_UPDATE_FILE):
-        #  Print.green('Update already detected')
+        #  Printer.green_line('Update already detected')
         return  # already found update
 
     # get current time & last check time

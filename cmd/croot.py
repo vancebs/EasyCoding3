@@ -2,7 +2,7 @@
 # coding=utf-8
 
 from cmd.base.Cmd import Cmd
-from script.util.Print import Print
+from script.util.Printer import Printer
 
 import os
 
@@ -20,5 +20,5 @@ class croot(Cmd):
         if os.path.exists(root_dir):
             return self.cd(root_dir)
         else:
-            Print.red('root path not exists. path: %s' % root_dir)
+            Printer.red_line('root path not exists. path: %s' % root_dir)
             return False

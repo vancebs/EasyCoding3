@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # coding=utf-8
 
-from script.util.Print import Print
+from script.util.Printer import Printer
 from script.Env import Env
 from script.Shell import Shell
 
@@ -15,7 +15,7 @@ class EasyCoding(object):
 
             # check argv
             if len(argv) <= 0:
-                Print.red('No project input!!!')
+                Printer.red_line('No project input!!!')
                 self.help()
                 return
 
@@ -29,7 +29,7 @@ class EasyCoding(object):
 
             # check argv
             if len(argv) <= 0:
-                Print.red('No project input!!!')
+                Printer.red_line('No project input!!!')
                 self.help()
                 return
 
@@ -48,8 +48,8 @@ class EasyCoding(object):
             # load cfg
             cfg = env.load_cfg(project)
             if cfg is None:
-                Print.red('invalid project: %s' % project)
-                Print.yellow('available project: %s' % env.cfgProgramCfgList)
+                Printer.red_line('invalid project: %s' % project)
+                Printer.yellow_line('available project: %s' % env.cfgProgramCfgList)
                 return
 
             # check cmd
@@ -61,8 +61,8 @@ class EasyCoding(object):
 
                 cmd = env.load_cmd(cmd_name)
                 if cmd is None:
-                    Print.red('invalid command: %s.' % cmd_name)
-                    Print.yellow('available cmd: %s' % env.cfgProgramCmdList)
+                    Printer.red_line('invalid command: %s.' % cmd_name)
+                    Printer.yellow_line('available cmd: %s' % env.cfgProgramCmdList)
                     return
                 else:
                     cmd_checked.append({'cmd': cmd, 'params': cmd_params})
@@ -73,5 +73,5 @@ class EasyCoding(object):
 
     @staticmethod
     def help():
-        Print.yellow('ec [--print|-p|-P] <project> CMD1 [PARAM1], [CMD2] [PARAM2]')
-        Print.yellow('\t [--print|-p|-P]: print the command instead of execute on shell')
+        Printer.yellow_line('ec [--print|-p|-P] <project> CMD1 [PARAM1], [CMD2] [PARAM2]')
+        Printer.yellow_line('\t [--print|-p|-P]: print the command instead of execute on shell')

@@ -2,7 +2,7 @@
 # coding=utf-8
 
 from cmd.base.Cmd import Cmd
-from script.util.Print import Print
+from script.util.Printer import Printer
 import os
 
 
@@ -31,8 +31,8 @@ class setup(Cmd):
         if os.path.exists(target):
             self.shell('rm -rf %s' % link)  # remove old link
             self.shell('ln -s %s %s' % (target, link))  # create new link
-            Print.green('create link: %s => %s' % (link, target))
+            Printer.green_line('create link: %s => %s' % (link, target))
             return True
         else:
-            Print.yellow('target [%s] not exists. ignore it' % target)
+            Printer.yellow_line('target [%s] not exists. ignore it' % target)
             return False

@@ -2,7 +2,7 @@
 # coding=utf-8
 
 from cmd.base.Cmd import Cmd
-from script.util.Print import Print
+from script.util.Printer import Printer
 
 
 class help(Cmd):
@@ -12,16 +12,16 @@ class help(Cmd):
     def on_run(self, *params) -> bool:
         count = len(params)
         if count <= 0:
-            Print.red('please input a command for help.')
+            Printer.red_line('please input a command for help.')
             self.help()
             return False
         elif count > 1:
-            Print.red('only 1 command is accepted.')
+            Printer.red_line('only 1 command is accepted.')
             self.help()
             return False
         else:  # count == 1
             if params[0] not in self.cfg.cfgProgramCmdList:
-                Print.red('invalid command.')
+                Printer.red_line('invalid command.')
                 self.help()
                 return False
 
@@ -33,6 +33,6 @@ class help(Cmd):
         return True
 
     def help(self):
-        Print.yellow('Show help of the command')
-        Print.yellow('')
-        Print.yellow('cmd: %s' % self.cfg.cfgProgramCmdList)
+        Printer.yellow_line('Show help of the command')
+        Printer.yellow_line('')
+        Printer.yellow_line('cmd: %s' % self.cfg.cfgProgramCmdList)

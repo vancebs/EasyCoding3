@@ -2,7 +2,7 @@
 # coding=utf-8
 
 from cmd.base.Cmd import Cmd
-from script.util.Print import Print
+from script.util.Printer import Printer
 
 import os
 
@@ -20,5 +20,5 @@ class cout(Cmd):
         if os.path.exists(out_dir):
             return self.cd(out_dir)
         else:
-            Print.red('out path not exists. path: %s' % out_dir)
+            Printer.red_line('out path not exists. path: %s' % out_dir)
             return False
