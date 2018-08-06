@@ -27,11 +27,11 @@ function execScript() {
     initPipeOut_7
 
     # start script
-    enterPython3
     ({
+        enterPython3
         ${PYTHON_BIN} ${PYTHON_SCRIPT} $@ >&6 <&7
+        leavePython3
     } &)
-    leavePython3
 
     # read and exec
     while [[ TRUE ]]; do

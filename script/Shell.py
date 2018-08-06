@@ -40,63 +40,11 @@ class Shell(object):
             return 0
         else:
             # print(cmd)
-            return self._exec_internal(cmd)
+            return Shell.exec_cmd(cmd)
 
-    def _exec_internal(self, cmd: str) -> int:
-        # send command
-        print('%s%s' % (self._PREFIX_CMD, cmd))
-
-        # receive exit code
-        line = input()
-
-        # get exit code
-        try:
-            return int(line)
-        except ValueError:
-            return 10086  # unknown error
-
-    def func(self, cmd: str) -> str:
-        # send command
-        print('%s%s' % (self._PREFIX_FUNC, cmd))
-
-        # receive output
-        output = []
-        line = input().strip()
-        while not line == '==end==':
-            output.append(line)
-            line = input().strip()
-
-        # get result
-        return '\n'.join(output).strip()
-
-    # @staticmethod
-    # def shell_exec(cmd: str) -> int:
-    #     # send command
-    #     print('%s%s' % (Shell._PREFIX_CMD, cmd))
-    #
-    #     # receive exit code
-    #     line = input()
-    #
-    #     # get exit code
-    #     try:
-    #         return int(line)
-    #     except ValueError:
-    #         return 10086  # unknown error
-
-    # @staticmethod
-    # def shell_func(cmd: str) -> str:
-    #     # send command
-    #     print('%s%s' % (Shell._PREFIX_FUNC, cmd))
-    #
-    #     # receive output
-    #     output = []
-    #     line = input().strip()
-    #     while not line == '==end==':
-    #         output.append(line)
-    #         line = input().strip()
-    #
-    #     # get result
-    #     return '\n'.join(output).strip()
+    @staticmethod
+    def func(cmd: str) -> str:
+        return Shell.exec_func(cmd)[1]
 
     @staticmethod
     def exec_cmd(cmd: str) -> int:
