@@ -14,6 +14,7 @@ class end(Cmd):
     )
 
     def on_run(self, *params) -> bool:
+        # alias for ec
         for cmd in self.cfg.cfgProgramCmdList:
             self.shell('unalias ec-%s' % cmd)
 

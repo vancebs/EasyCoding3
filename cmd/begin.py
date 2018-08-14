@@ -14,6 +14,7 @@ class begin(Cmd):
     )
 
     def on_run(self, *params) -> bool:
+        # alias for ec
         project = self.cfg.cfgProjectName
         for cmd in self.cfg.cfgProgramCmdList:
             self.shell('alias ec-%s="ec %s %s"' % (cmd, project, cmd))
