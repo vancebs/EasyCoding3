@@ -18,6 +18,7 @@ class begin(Cmd):
         project = self.cfg.cfgProjectName
         for cmd in self.cfg.cfgProgramCmdList:
             self.shell('alias ec-%s="ec %s %s"' % (cmd, project, cmd))
+            self.shell('alias ec-p-%s="ec -p %s %s"' % (cmd, project, cmd))
 
         self.shell('export EC_BEGIN=%s' % project)
 

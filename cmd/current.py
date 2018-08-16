@@ -5,20 +5,15 @@ from cmd.base.Cmd import Cmd
 from script.util.Printer import Printer
 
 
-class end(Cmd):
+class current(Cmd):
     _INIT_WORK_DIR: bool = False
     _RESTORE_WORK_DIR: bool = False
 
     _HELP_MESSAGE = (
-        'end focus mode',
+        'Show current of the device',
     )
 
     def on_run(self, *params) -> bool:
-        # alias for ec
-        for cmd in self.cfg.cfgProgramCmdList:
-            self.shell('unalias ec-%s' % cmd)
-            self.shell('unalias ec-p-%s' % cmd)
-
-        self.shell('unset EC_BEGIN')
+        self.shell('adb shell cat /sys/class/power_supply/battery/current_now')
 
         return True

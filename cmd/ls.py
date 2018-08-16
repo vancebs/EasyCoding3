@@ -5,20 +5,15 @@ from cmd.base.Cmd import Cmd
 from script.util.Printer import Printer
 
 
-class end(Cmd):
+class ls(Cmd):
     _INIT_WORK_DIR: bool = False
     _RESTORE_WORK_DIR: bool = False
 
     _HELP_MESSAGE = (
-        'end focus mode',
+        'adb shell ls --color -CF <PATH>',
     )
 
     def on_run(self, *params) -> bool:
-        # alias for ec
-        for cmd in self.cfg.cfgProgramCmdList:
-            self.shell('unalias ec-%s' % cmd)
-            self.shell('unalias ec-p-%s' % cmd)
-
-        self.shell('unset EC_BEGIN')
+        self.shell('adb shell ls --color -CF %s' % ' '.join(params))
 
         return True
