@@ -34,7 +34,7 @@ class version(Cmd):
         remote_version = version.http_get(version._URL_VERSION).strip()
 
         # check need update
-        need_update = remote_version != local_version
+        need_update = remote_version > local_version
 
         # do update if necessary
         if not need_update:
