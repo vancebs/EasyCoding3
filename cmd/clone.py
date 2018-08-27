@@ -48,16 +48,17 @@ class clone(Cmd):
         self.shell('cp -rf "%s/.vscode" "%s/.vscode"' % (project_dir, temp_dir))
 
         # prepare the input text & repo command
+        repo_bin = 'python %s/bin/%s' % (self.data_dir(), self.cfg.cfgProjectRepoBin)
         repo_input = '%s\r%s\ry\r' % (self.cfg.cfgGlobalUserName, self.cfg.cfgGlobalUserEmail)
-        repo_cmd = '%s init -u %s -m %s.xml --depth=1 --config-name' % (self.cfg.cfgProjectRepoBin,
-                                                                        self.cfg.cfgProjectUrlRepoPull,
-                                                                        self.cfg.cfgProjectBranch)
+        repo_cmd = '%s init -u %s -b master -m %s.xml --depth=1 --config-name' % (repo_bin,
+                                                                                  self.cfg.cfgProjectUrlRepoPull,
+                                                                                  self.cfg.cfgProjectBranch)
 
         # start clone
         with Python2(self):
             self.shell('eval echo %s | %s' % (repo_input, repo_cmd))
-            self.shell('%s sync %s' % (self.cfg.cfgProjectRepoBin, '-j4' if thread_param is None else thread_param))
-            self.shell('%s start %s --all' % (self.cfg.cfgProjectRepoBin, self.cfg.cfgProjectBranch))
+            self.shell('%s sync %s' % (repo_bin, '-j4' if thread_param is None else thread_param))
+            self.shell('%s start %s --all' % (repo_bin, self.cfg.cfgProjectBranch))
 
         # move project dir to backup
         old_date = '%s_backup' % date

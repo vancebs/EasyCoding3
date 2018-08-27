@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # coding=utf-8
+from typing import Union
 
 from script.util.Printer import Printer
 from cfg.base.Config import Config
@@ -75,3 +76,7 @@ class Cmd(object):
     def help(self):
         for line in self._HELP_MESSAGE:
             Printer.yellow_line(line)
+
+    def data_dir(self):
+        return '%s/data/%s' % (self.cfg.cfgProgramDir, self.__class__.__name__)
+
