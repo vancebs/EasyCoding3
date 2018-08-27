@@ -1,11 +1,15 @@
 #!/usr/bin/python
 # coding=utf-8
 
+import time
+
 from cmd.base.Cmd import Cmd
 from script.util.Printer import Printer
 from urllib.error import URLError
 from urllib.request import Request
 from urllib.request import urlopen
+from script.CheckUpdate import set_last_check
+from script.CheckUpdate import set_has_update
 
 
 class version(Cmd):
@@ -27,10 +31,17 @@ class version(Cmd):
     def on_run(self, *params) -> bool:
         with open('%s/VERSION' % self.cfg.cfgProgramDir, 'r') as file:
             local_version = file.readline().strip()
-        Printer.green_line('Local Version: %s' % local_version)
-
         remote_version = version.http_get(version._URL_VERSION).strip()
-        Printer.green_line('Remote Version: %s' % remote_version)
+
+        # check need update
+        need_update = remote_version != local_version
+
+        # do update if necessary
+        if not need_update:
+            set_last_check(int(time.time()), 'Up to date!! local: [%s], remote: [%s]' % (local_version, remote_version))
+        else:
+            set_last_check(int(time.time()), 'Need update! local: [%s], remote: [%s]' % (local_version, remote_version))
+            set_has_update(remote_version)
 
         return True
 
