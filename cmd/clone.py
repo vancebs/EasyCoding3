@@ -36,6 +36,9 @@ class clone(Cmd):
                 params = list(params)
                 params.remove(p)
 
+        # create backup dir if not exists
+        self.shell('mkdir -p %s' % self.cfg.cfgProjectBackupDir)
+
         # move project dir to backup
         old_date = '%s_backup' % date
         old_date_path = '%s/%s' % (self.cfg.cfgProjectRootDir, date_path)
