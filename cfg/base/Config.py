@@ -59,7 +59,7 @@ class Config(GlobalConfig):
         # project
         self.cfgProjectRootDir = '%s/%s' % (self.cfgGlobalBaseDir, self.cfgProjectRootDirName)
         self.cfgProjectOutDir = '%s/out/target/product/%s' % (self.cfgProjectRootDir, self.cfgProjectName)
-        self.cfgProjectBackupDir = '%s/%s' % (self.cfgGlobalBackupDir, self.cfgProjectName)
+        self.cfgProjectBackupDir = '%s/%s' % (self.cfgGlobalBackupDir, self.cfgProjectRootDirName)
         self.cfgProjectUrlRepoPull = '%s%s/%s.git' % (self.cfgGlobalUrlRepoPull,
                                                       self.cfgProjectUrlRepoRepository,
                                                       self.cfgProjectUrlRepoPullManifest)
