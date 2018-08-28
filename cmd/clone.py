@@ -24,9 +24,8 @@ class clone(Cmd):
         Printer.green_line('clone ...')
 
         project_dir = self.cfg.cfgProjectRootDir
-        date_file = '.date'
+        date_path = '.date'
         date = datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
-        temp_dir = '%s/%s' % (self.cfg.cfgProjectBackupDir, date)
 
         # check -j*
         pattern = re.compile('-j[\d]+')
@@ -37,15 +36,24 @@ class clone(Cmd):
                 params = list(params)
                 params.remove(p)
 
-        # prepare temp dir under backup dir
-        self.shell('mkdir -p %s' % temp_dir)
-        self.cd(temp_dir)  # switch to temp dir
-        self.shell('eval echo "%s" > ./%s' % (date, date_file))  # create .date file
+        # move project dir to backup
+        old_date = '%s_backup' % date
+        old_date_path = '%s/%s' % (self.cfg.cfgProjectRootDir, date_path)
+        if os.path.exists(old_date_path) and os.path.isfile(old_date_path):
+            with open(old_date_path) as date_file:
+                old_date = date_file.readline().strip()
+        backup_dir = '%s/%s' % (self.cfg.cfgProjectBackupDir, old_date)
+        self.shell('eval mv -f "%s" "%s"' % (project_dir, backup_dir))
+
+        # prepare new project dir
+        self.shell('mkdir -p %s' % self.cfg.cfgProjectRootDir)
+        self.cd(self.cfg.cfgProjectRootDir)  # switch to temp dir
+        self.shell('eval echo "%s" > ./%s' % (date, date_path))  # create .date file
 
         # copy file from old project
-        self.shell('cp -f "%s/.classpath" "%s/.classpath"' % (project_dir, temp_dir))
-        self.shell('cp -f "%s/.project" "%s/.project"' % (project_dir, temp_dir))
-        self.shell('cp -rf "%s/.vscode" "%s/.vscode"' % (project_dir, temp_dir))
+        self.shell('cp -f "%s/.classpath" "%s/.classpath"' % (backup_dir, project_dir))
+        self.shell('cp -f "%s/.project" "%s/.project"' % (backup_dir, project_dir))
+        self.shell('cp -rf "%s/.vscode" "%s/.vscode"' % (backup_dir, project_dir))
 
         # prepare the input text & repo command
         repo_bin = 'python %s/bin/%s' % (self.data_dir(), self.cfg.cfgProjectRepoBin)
@@ -60,17 +68,8 @@ class clone(Cmd):
             self.shell('%s sync %s' % (repo_bin, '-j4' if thread_param is None else thread_param))
             self.shell('%s start %s --all' % (repo_bin, self.cfg.cfgProjectBranch))
 
-        # move project dir to backup
-        old_date = '%s_backup' % date
-        old_date_path = '%s/%s' % (self.cfg.cfgProjectRootDir, date_file)
-        if os.path.exists(old_date_path) and os.path.isfile(old_date_path):
-            with open(old_date_path) as date_file:
-                old_date = date_file.readline().strip()
-        backup_dir = '%s/%s' % (self.cfg.cfgProjectBackupDir, old_date)
-        self.shell('eval mv -f "%s" "%s"' % (project_dir, backup_dir))
-
-        # move temp dir to project dir
-        self.shell('eval mv -f "%s" "%s"' % (temp_dir, project_dir))
+        # # move temp dir to project dir
+        # self.shell('eval mv -f "%s" "%s"' % (temp_dir, project_dir))
 
         # apply ccache
         self.cd(project_dir)

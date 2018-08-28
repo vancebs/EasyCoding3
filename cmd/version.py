@@ -51,6 +51,9 @@ class version(Cmd):
             # show message
             Printer.yellow_line(msg)
 
+            # run version cmd again to apply update
+            self.cmd('version')
+
         return True
 
     @staticmethod

@@ -5,6 +5,8 @@ from GlobalConfig import GlobalConfig
 
 
 class Config(GlobalConfig):
+    cfgName = 'NA'
+
     # global config
     # cfgGlobalBaseDir = 'NA'
     # cfgGlobalUrlRepoPull = 'NA'
@@ -53,6 +55,8 @@ class Config(GlobalConfig):
     cfgProjectRepoBin = 'repo'
 
     def __init__(self):
+        self.cfgName = self.__class__.__name__
+
         # global
         self.cfgGlobalBackupDir = '%s/backup' % self.cfgGlobalBaseDir
 

@@ -17,11 +17,13 @@ class Cmd(object):
     )
 
     _mShell: Shell
+    name: str
     cfg: Config
     env = None
 
     def run(self, shell: Shell, cfg: Config, *params) -> bool:
         # save cfg & shell
+        self.name = self.__class__.__name__
         self._mShell = shell
         self.cfg = cfg
 
@@ -78,5 +80,5 @@ class Cmd(object):
             Printer.yellow_line(line)
 
     def data_dir(self):
-        return '%s/data/%s' % (self.cfg.cfgProgramDir, self.__class__.__name__)
+        return '%s/data/%s' % (self.cfg.cfgProgramDir, self.name)
 
