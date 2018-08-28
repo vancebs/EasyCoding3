@@ -22,19 +22,19 @@ function launch() {
         return $?
     fi
 
-#    # show last update message
-#    if [ -e ${CHECK_PATH} ]; then
-#        (
-#            l=$(line)  # drop first line
-#
-#            while l=$(line); do
-#                print ${COLOR_GREEN} "${l}"
-#            done
-#        ) < ${CHECK_PATH}
-#    fi
-
     # do update if necessary
     if [ -e ${UPDATE_PATH} ]; then
+        # show last update message
+        if [ -e ${CHECK_PATH} ]; then
+            (
+                l=$(line)  # drop first line
+
+                while l=$(line); do
+                    print ${COLOR_GREEN} "${l}"
+                done
+            ) < ${CHECK_PATH}
+        fi
+
         _PWD=${PWD}
         cd ${EC_DIR}  # switch to EC root dir
         git pull

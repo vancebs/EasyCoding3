@@ -66,19 +66,10 @@ def launch():
     if not need_update:
         msg = 'Up to date!! local: [%s], remote: [%s]' % (local_version, remote_version)
         set_last_check(curr_time, msg)
-
-        # show message
-        from script.util.Printer import Printer
-        Printer.green_line(msg)
-
     else:
         msg = 'Need update! local: [%s], remote: [%s]' % (local_version, remote_version)
         set_last_check(curr_time, msg)
         set_has_update(remote_version)
-
-        # show message
-        from script.util.Printer import Printer
-        Printer.yellow_line(msg)
 
 
 def get_last_version() -> str:
