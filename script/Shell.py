@@ -2,6 +2,7 @@
 # coding=utf-8
 
 import sys
+from typing import Tuple
 
 from script.util.Printer import Printer
 
@@ -62,7 +63,7 @@ class Shell(object):
         return code
 
     @staticmethod
-    def exec_func(cmd: str) -> tuple:
+    def exec_func(cmd: str) -> Tuple[int, str]:
         # exec
         sys.stdout.write('func:%s\n' % cmd)
         sys.stdout.flush()

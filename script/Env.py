@@ -2,6 +2,7 @@
 # coding=utf-8
 
 import os
+from typing import List
 
 from cfg.base.Config import Config
 from cmd.base.Cmd import Cmd
@@ -74,16 +75,16 @@ class Env(object):
         return os.path.abspath((Env._PROGRAM_DIR + '/' + module) % os.path.dirname(__file__))
 
     @staticmethod
-    def get_program_module_list(module: str) -> list:
+    def get_program_module_list(module: str) -> List[str]:
         file_list = list(filter(lambda name: not os.path.isdir('%s/%s' % (module, name)) and '__init__.py' != name,
                                 os.listdir(module)))
         name_list = list(map(lambda name: name.split('.')[0], file_list))
         return name_list
 
     @staticmethod
-    def get_program_cmd_list() -> list:
+    def get_program_cmd_list() -> List[str]:
         return Env.get_program_module_list(Env.get_program_cmd_dir())
 
     @staticmethod
-    def get_program_cfg_list() -> list:
+    def get_program_cfg_list() -> List[str]:
         return Env.get_program_module_list(Env.get_program_cfg_dir())

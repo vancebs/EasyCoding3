@@ -3,6 +3,7 @@
 
 
 import os
+from typing import Tuple, Union
 
 from urllib.error import URLError
 from urllib.request import Request
@@ -80,7 +81,7 @@ def get_last_version() -> str:
         return '0'
 
 
-def get_last_check() -> (int, str):
+def get_last_check() -> Tuple[int, str]:
     if os.path.exists(LAST_CHECK_FILE):
         with open(LAST_CHECK_FILE, 'r') as file:
             return int(file.readline().strip()), file.readline().strip()
@@ -98,7 +99,7 @@ def set_has_update(version: str):
         file.write('%s\n' % version)
 
 
-def http_get(url: str) -> (None, str):
+def http_get(url: str) -> Union[None, str]:
     try:
         request = Request(url=url, headers={'User-Agent': UA_CHROME})
         response = urlopen(request, timeout=5)

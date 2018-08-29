@@ -2,6 +2,7 @@
 # coding=utf-8
 
 import sys
+from typing import Tuple
 
 from script.util.Printer import Printer
 from script.EasyCoding import EasyCoding
@@ -27,7 +28,7 @@ def exec_cmd(cmd: str) -> int:
     return code
 
 
-def exec_func(cmd: str) -> tuple:
+def exec_func(cmd: str) -> Tuple[int, str]:
     # exec
     sys.stdout.write('func:%s\n' % cmd)
     sys.stdout.flush()
