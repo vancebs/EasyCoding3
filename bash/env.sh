@@ -61,10 +61,10 @@ function condaBegin() {
 
         # create env if env not exists
         if [[ ${has_env_2} == FALSE ]]; then
-            echo "y" | ${CONDA_PATH} create -n ${CONDA_ENV_NAME_2} python=2.7.15
+            echo "y" | ${CONDA_PATH} create -n ${CONDA_ENV_NAME_2} python=2.7.15 pil
         fi
         if [[ ${has_env_3} == FALSE ]]; then
-            echo "y" | ${CONDA_PATH} create -n ${CONDA_ENV_NAME_3} python=3.7.0
+            echo "y" | ${CONDA_PATH} create -n ${CONDA_ENV_NAME_3} python=3.7.0 pil
         fi
 
         # set conda ready flag
