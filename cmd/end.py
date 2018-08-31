@@ -21,4 +21,9 @@ class end(Cmd):
 
         self.shell('unset EC_BEGIN')
 
+        # recover cmd line
+        ec_ps1 = self.func('echo $EC_PS1')
+        if ec_ps1 != '':
+            self.shell('PS1=$EC_PS1')
+
         return True

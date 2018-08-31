@@ -22,4 +22,10 @@ class begin(Cmd):
 
         self.shell('export EC_BEGIN=%s' % project)
 
+        # show project on cmd line
+        ec_ps1 = self.func('echo $EC_PS1')
+        if ec_ps1 == '':
+            self.shell('export EC_PS1=$PS1')
+        self.shell('export PS1="\033[36m[%s]\033[0m $EC_PS1"' % self.cfg.cfgName)
+
         return True
